@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import InputTest from './components/DiceRoller.vue'
+import DiceRoller from './components/DiceRoller.vue'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import InputTest from './components/DiceRoller.vue'
             <nav>
                 <RouterLink to="/">Home</RouterLink>
             </nav>
-            <InputTest />
+            <DiceRoller />
         </div>
     </header>
 

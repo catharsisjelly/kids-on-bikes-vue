@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Title from '@/components/Title.vue';
+</script>
 
 <template>
-    <main></main>
+    <main>
+        <Title />
+    </main>
 </template>
