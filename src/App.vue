@@ -1,21 +1,19 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import InputTest from './components/DiceRoller.vue';
+import DiceRoller from './components/DiceRoller.vue'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-      </nav>
-      <InputTest />
+    <header>
+        <div class="wrapper">
+            <nav>
+                <RouterLink to="/">Home</RouterLink>
+            </nav>
+            <DiceRoller />
+        </div>
+    </header>
 
-    </div>
-  </header>
-
-  <RouterView />
+    <RouterView />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
