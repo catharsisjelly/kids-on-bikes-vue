@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Title from '@/components/Title.vue';
+import MainTitle from '@/components/MainTitle.vue'
 </script>
 
 <template>
     <main>
-        <Title />
+        <MainTitle />
     </main>
 </template>
