@@ -4,7 +4,7 @@ import CharacterSheet from './CharacterSheet/CharacterSheet.vue'
 
 <template>
     <div class="grid">
-        <h1>Paranoia Helper</h1>
+        <h1>Kids on Bikes Helper</h1>
         <CharacterSheet />
     </div>
 </template>
