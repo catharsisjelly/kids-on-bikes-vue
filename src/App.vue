@@ -18,7 +18,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
 body #app header {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 </style>

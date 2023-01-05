@@ -1,26 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import Fieldset from 'primevue/fieldset'
-import Textarea from 'primevue/textarea'
-import Details from './Details.vue'
-import Skills from './Skills.vue'
-import Stats from './Stats.vue'
-import Inventory from './Inventory.vue'
+import PlayerDetails from './PlayerDetails.vue'
+import PlayerSkills from './PlayerSkills.vue'
+import PlayerStats from './PlayerStats.vue'
+import PlayerInventory from './PlayerInventory.vue'
 import AdversityTokens from './AdversityTokens.vue'
-
-const notes = ref()
-
+import PlayerNotes from './PlayerNotes.vue'
 </script>
 
 <template>
-    <!-- <Details /> -->
-    <!-- <Skills /> -->
-    <Stats />
-    <!-- <Inventory /> -->
-    <!-- <AdversityTokens /> -->
-    <div>
-        <Fieldset legend="Notes">
-            <Textarea v-model="notes" />
-        </Fieldset>
-    </div>
+    <PlayerDetails />
+    <PlayerSkills />
+    <PlayerStats />
+    <PlayerInventory />
+    <AdversityTokens />
+    <PlayerNotes />
 </template>

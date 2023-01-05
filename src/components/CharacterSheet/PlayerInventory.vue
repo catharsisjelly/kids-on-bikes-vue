@@ -14,7 +14,6 @@ const addItem = (event: Event) => {
         inventory.value.push(event.target.value)
     }
 }
-
 </script>
 
 <template>
@@ -28,7 +27,7 @@ const addItem = (event: Event) => {
             </ul>
             <div class="field grid">
                 <label for="name" class="col-fixed">Add Item</label>
-                <InputText id="name" type="text" @keyup.enter="addItem"/>
+                <InputText id="name" type="text" @keyup.enter="addItem" />
             </div>
         </Fieldset>
     </div>
