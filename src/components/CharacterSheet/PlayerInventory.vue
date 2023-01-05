@@ -3,15 +3,17 @@ import { ref } from 'vue'
 import Fieldset from 'primevue/fieldset'
 import InputText from 'primevue/inputtext'
 
-const inventory = ref([])
+const arr: Array<string> = []
+const inventory = ref(arr)
 
 const removeItem = (index: number) => {
     inventory.value.splice(index, 1)
 }
 
 const addItem = (event: Event) => {
-    if (event.target !== null) {
-        inventory.value.push(event.target.value)
+    const target = event.target as HTMLInputElement
+    if (target !== null) {
+        inventory.value.push(target.value)
     }
 }
 </script>
