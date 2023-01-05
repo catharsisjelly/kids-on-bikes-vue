@@ -13,11 +13,11 @@ const notes = ref()
 </script>
 
 <template>
-    <Details />
-    <Skills />
+    <!-- <Details /> -->
+    <!-- <Skills /> -->
     <Stats />
-    <Inventory />
-    <AdversityTokens />
+    <!-- <Inventory /> -->
+    <!-- <AdversityTokens /> -->
     <div>
         <Fieldset legend="Notes">
             <Textarea v-model="notes" />
