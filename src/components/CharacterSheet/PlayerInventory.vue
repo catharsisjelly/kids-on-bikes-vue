@@ -21,7 +21,7 @@ const addItem = (event: Event) => {
 <template>
     <div>
         <Fieldset legend="Inventory">
-            <ul>
+            <ul data-test-id="inventory">
                 <li v-for="(item, index) in inventory" :key="index">
                     {{ item }}
                     <button @click="removeItem(index)">Remove</button>

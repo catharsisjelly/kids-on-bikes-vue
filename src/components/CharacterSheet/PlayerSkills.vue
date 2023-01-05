@@ -17,10 +17,10 @@ const changeSkill = () => {
 </script>
 
 <template>
-    <div v-if="displayError" class="card">
-        <p>The maxiimum number of skills are 3</p>
+    <div v-if="displayError">
+        <p>The maximum number of skills are 3</p>
     </div>
-    <div class="card">
+    <div>
         <Fieldset legend="Skills">
             <div class="field-checkbox">
                 <Checkbox

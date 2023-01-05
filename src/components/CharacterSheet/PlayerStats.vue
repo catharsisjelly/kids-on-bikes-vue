@@ -41,10 +41,10 @@ const changeAvailableDice = () => {
 
 <template>
     <div v-if="displayError">You should only have one of each dice</div>
-    <div class="card">
+    <div>
         <Fieldset legend="Stats">
             <div>
-                <div>Fight</div>
+                <label>Fight</label>
                 <Dropdown
                     v-model="stats.fight"
                     inputId="fight"
@@ -56,7 +56,7 @@ const changeAvailableDice = () => {
                 />
             </div>
             <div>
-                <div>Flight</div>
+                <label>Flight</label>
                 <Dropdown
                     v-model="stats.flight"
                     inputId="flight"
@@ -68,7 +68,7 @@ const changeAvailableDice = () => {
                 />
             </div>
             <div>
-                <div>Brains</div>
+                <label>Brains</label>
                 <Dropdown
                     v-model="stats.brains"
                     inputId="brains"
@@ -80,7 +80,7 @@ const changeAvailableDice = () => {
                 />
             </div>
             <div>
-                <div>Brawn</div>
+                <label>Brawn</label>
                 <Dropdown
                     v-model="stats.brawn"
                     inputId="brawn"
@@ -92,7 +92,7 @@ const changeAvailableDice = () => {
                 />
             </div>
             <div>
-                <div>Charm</div>
+                <label>Charm</label>
                 <Dropdown
                     v-model="stats.charm"
                     inputId="charm"
@@ -104,7 +104,7 @@ const changeAvailableDice = () => {
                 />
             </div>
             <div>
-                <div>Grit</div>
+                <label>Grit</label>
                 <Dropdown
                     v-model="stats.grit"
                     inputId="grit"
