@@ -1,19 +1,24 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import DiceRoller from './components/DiceRoller.vue'
 </script>
 
 <template>
     <header>
-        <div class="wrapper">
+        <div>
             <nav>
                 <RouterLink to="/">Home</RouterLink>
             </nav>
-            <DiceRoller />
         </div>
     </header>
 
-    <RouterView />
+    <div class="wrapper">
+        <RouterView />
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+body #app header {
+    margin: 0;
+    padding: 0;
+}
+</style>
