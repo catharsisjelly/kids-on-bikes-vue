@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import InputNumber from 'primevue/inputnumber'
 import Fieldset from 'primevue/fieldset'
+import { useCharacterSheet } from '@/stores/characterSheet'
+import { storeToRefs } from 'pinia'
 
-const adversityToken = ref(0)
+const store = useCharacterSheet()
+const { adversityTokens } = storeToRefs(store)
 </script>
 
 <template>
@@ -12,7 +14,7 @@ const adversityToken = ref(0)
             <div class="field col-12 md:col-3">
                 <InputNumber
                     inputId="vertical"
-                    v-model="adversityToken"
+                    v-model="adversityTokens"
                     mode="decimal"
                     showButtons
                     decrementButtonClass="p-button-secondary"
