@@ -8,10 +8,10 @@ import PlayerNotes from './PlayerNotes.vue'
 </script>
 
 <template>
-    <PlayerDetails />
-    <PlayerSkills />
+    <!-- <PlayerDetails /> -->
+    <!-- <PlayerSkills /> -->
     <PlayerStats />
-    <PlayerInventory />
-    <AdversityTokens />
-    <PlayerNotes />
+    <!-- <PlayerInventory /> -->
+    <!-- <AdversityTokens /> -->
+    <!-- <PlayerNotes /> -->
 </template>
