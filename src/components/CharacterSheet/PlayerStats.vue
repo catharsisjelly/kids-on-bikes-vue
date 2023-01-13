@@ -27,7 +27,7 @@ const changeAvailableDice = () => {
     const values = Object.values(unref(stats))
 
     const duplicates = values.filter(
-        (currentValue: string, currentIndex: number) =>
+        (currentValue: undefined, currentIndex: number) =>
             typeof currentValue === 'string' &&
             values.indexOf(currentValue) !== currentIndex
     )
