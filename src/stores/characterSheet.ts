@@ -32,25 +32,35 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
             { name: 'D10', value: 'd10' },
             { name: 'D12', value: 'd12' },
             { name: 'D20', value: 'd20' },
-        ];
+        ]
 
         const values = Object.values(statDice)
 
-        for (let value of values) {
+        for (const value of values) {
             if (value === undefined) {
                 continue
             }
-            const index = diceAvailable.findIndex((element) => element.value === value);
+            const index = diceAvailable.findIndex(
+                (element) => element.value === value
+            )
             if (index != -1) {
                 console.log('index', index)
-                diceAvailable.splice(index, 1);
-            } 
+                diceAvailable.splice(index, 1)
+            }
         }
-        
-        console.log('diceAvailable', diceAvailable);
 
-        return diceAvailable;
-    });
+        console.log('diceAvailable', diceAvailable)
 
-    return { characterDetails, adversityTokens, inventory, notes, skills, statDice, availableDice }
+        return diceAvailable
+    })
+
+    return {
+        characterDetails,
+        adversityTokens,
+        inventory,
+        notes,
+        skills,
+        statDice,
+        availableDice,
+    }
 })

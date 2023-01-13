@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import Fieldset from 'primevue/fieldset'
 import InputText from 'primevue/inputtext'
-import { useCharacterSheet } from '@/stores/characterSheet';
-import { storeToRefs } from 'pinia';
+import { useCharacterSheet } from '@/stores/characterSheet'
+import { storeToRefs } from 'pinia'
 
-const store = useCharacterSheet();
-const { inventory } = storeToRefs(store);
+const store = useCharacterSheet()
+const { inventory } = storeToRefs(store)
 
 const removeItem = (index: number) => {
     inventory.value.splice(index, 1)
@@ -17,7 +17,8 @@ const addItem = (event: Event) => {
         inventory.value.push(target.value)
     }
 }
-``</script>
+;``
+</script>
 
 <template>
     <div>

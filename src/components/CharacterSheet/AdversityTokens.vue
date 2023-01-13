@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import InputNumber from 'primevue/inputnumber'
 import Fieldset from 'primevue/fieldset'
-import { useCharacterSheet } from '@/stores/characterSheet';
-import { storeToRefs } from 'pinia';
+import { useCharacterSheet } from '@/stores/characterSheet'
+import { storeToRefs } from 'pinia'
 
-const store = useCharacterSheet();
-const { adversityTokens } = storeToRefs(store);
-
+const store = useCharacterSheet()
+const { adversityTokens } = storeToRefs(store)
 </script>
 
 <template>

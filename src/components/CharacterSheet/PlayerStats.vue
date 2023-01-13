@@ -3,11 +3,6 @@ import { ref, unref } from 'vue'
 import Dropdown from 'primevue/dropdown'
 import Fieldset from 'primevue/fieldset'
 
-type DiceDefinition = {
-    name: string;
-    value: string;
-};
-
 const availableDice = ref([
     { name: 'D4', value: 'd4' },
     { name: 'D6', value: 'd6' },
@@ -31,8 +26,11 @@ const displayError = ref(false)
 const changeAvailableDice = () => {
     const values = Object.values(unref(stats))
 
-    const duplicates = values.filter((currentValue: string, currentIndex: number) =>
-        typeof currentValue === 'string' && values.indexOf(currentValue) !== currentIndex);
+    const duplicates = values.filter(
+        (currentValue: string, currentIndex: number) =>
+            typeof currentValue === 'string' &&
+            values.indexOf(currentValue) !== currentIndex
+    )
 
     if (duplicates.length >= 1) {
         displayError.value = true
@@ -47,33 +45,75 @@ const changeAvailableDice = () => {
             <Fieldset legend="Stats">
                 <div>
                     <div>Fight</div>
-                    <Dropdown v-model="stats.fight" inputId="fight" :options="availableDice" optionLabel="name"
-                        optionValue="value" placeholder="Select a Dice" @change="changeAvailableDice" />
+                    <Dropdown
+                        v-model="stats.fight"
+                        inputId="fight"
+                        :options="availableDice"
+                        optionLabel="name"
+                        optionValue="value"
+                        placeholder="Select a Dice"
+                        @change="changeAvailableDice"
+                    />
                 </div>
                 <div>
                     <div>Flight</div>
-                    <Dropdown v-model="stats.flight" inputId="flight" :options="availableDice" optionLabel="name"
-                        optionValue="value" placeholder="Select a Dice" @change="changeAvailableDice" />
+                    <Dropdown
+                        v-model="stats.flight"
+                        inputId="flight"
+                        :options="availableDice"
+                        optionLabel="name"
+                        optionValue="value"
+                        placeholder="Select a Dice"
+                        @change="changeAvailableDice"
+                    />
                 </div>
                 <div>
                     <div>Brains</div>
-                    <Dropdown v-model="stats.brains" inputId="brains" :options="availableDice" optionLabel="name"
-                        optionValue="value" placeholder="Select a Dice" @change="changeAvailableDice" />
+                    <Dropdown
+                        v-model="stats.brains"
+                        inputId="brains"
+                        :options="availableDice"
+                        optionLabel="name"
+                        optionValue="value"
+                        placeholder="Select a Dice"
+                        @change="changeAvailableDice"
+                    />
                 </div>
                 <div>
                     <div>Brawn</div>
-                    <Dropdown v-model="stats.brawn" inputId="brawn" :options="availableDice" optionLabel="name"
-                        optionValue="value" placeholder="Select a Dice" @change="changeAvailableDice" />
+                    <Dropdown
+                        v-model="stats.brawn"
+                        inputId="brawn"
+                        :options="availableDice"
+                        optionLabel="name"
+                        optionValue="value"
+                        placeholder="Select a Dice"
+                        @change="changeAvailableDice"
+                    />
                 </div>
                 <div>
                     <div>Charm</div>
-                    <Dropdown v-model="stats.charm" inputId="charm" :options="availableDice" optionLabel="name"
-                        optionValue="value" placeholder="Select a Dice" @change="changeAvailableDice" />
+                    <Dropdown
+                        v-model="stats.charm"
+                        inputId="charm"
+                        :options="availableDice"
+                        optionLabel="name"
+                        optionValue="value"
+                        placeholder="Select a Dice"
+                        @change="changeAvailableDice"
+                    />
                 </div>
                 <div>
                     <div>Grit</div>
-                    <Dropdown v-model="stats.grit" inputId="grit" :options="availableDice" optionLabel="name"
-                        optionValue="value" placeholder="Select a Dice" @change="changeAvailableDice" />
+                    <Dropdown
+                        v-model="stats.grit"
+                        inputId="grit"
+                        :options="availableDice"
+                        optionLabel="name"
+                        optionValue="value"
+                        placeholder="Select a Dice"
+                        @change="changeAvailableDice"
+                    />
                 </div>
             </Fieldset>
         </div>

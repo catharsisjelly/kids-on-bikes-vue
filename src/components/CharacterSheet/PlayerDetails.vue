@@ -8,7 +8,6 @@ import { storeToRefs } from 'pinia'
 
 const store = useCharacterSheet()
 const { characterDetails } = storeToRefs(store)
-
 </script>
 
 <template>
@@ -20,7 +19,6 @@ const { characterDetails } = storeToRefs(store)
                     id="name"
                     type="text"
                     v-model="characterDetails.name"
-                    @blur=""
                 />
             </div>
             <div>
