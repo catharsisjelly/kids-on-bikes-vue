@@ -1,4 +1,4 @@
-import { unref, ref } from 'vue'
+import { unref, ref, type Ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCharacterSheet = defineStore('characterSheet', () => {
@@ -38,7 +38,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
         flaws: '',
         description: '',
     })
-    const inventory = ref([])
+    const inventory: Ref<string[]> = ref([])
     const notes = ref()
     const strengths = ref([])
     const statDice = ref({
