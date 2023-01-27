@@ -25,12 +25,7 @@ const roll = () => {
     <div class="grid formgrid">
         <div class="field">
             <label for="numberOfDice">Number of Dice to roll</label>
-            <InputNumber
-                inputId="numberOfDice"
-                v-model="numberOfDice"
-                mode="decimal"
-                :min="1"
-            />
+            <InputNumber inputId="numberOfDice" v-model="numberOfDice" mode="decimal" :min="1" />
         </div>
     </div>
     <Button label="Roll" @click="roll()" />
@@ -39,15 +34,10 @@ const roll = () => {
             <h2>Player Results</h2>
             <p>
                 You got <span>{{ playerResults?.rolls[0].value }}</span>
-                {{
-                    playerResults?.rolls[0].value == 1 ? 'Success' : 'Successes'
-                }}
+                {{ playerResults?.rolls[0].value == 1 ? 'Success' : 'Successes' }}
             </p>
             <ul>
-                <li
-                    v-for="(roll, index) in playerResults?.rolls[0].rolls"
-                    :key="index"
-                >
+                <li v-for="(roll, index) in playerResults?.rolls[0].rolls" :key="index">
                     Result: {{ roll.value }} -
                     {{ roll.calculationValue == 1 ? 'Success' : 'Fail' }}
                 </li>
@@ -57,11 +47,7 @@ const roll = () => {
             <h2>Friend Computer Results</h2>
             <p>
                 Friend Computer
-                {{
-                    computerResult.rolls[0].value == 1
-                        ? `Noticed you`
-                        : `Didn't notice you`
-                }}
+                {{ computerResult.rolls[0].value == 1 ? `Noticed you` : `Didn't notice you` }}
             </p>
         </div>
     </div>

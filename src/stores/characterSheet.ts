@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { unref, ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCharacterSheet = defineStore('characterSheet', () => {
@@ -73,7 +73,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
         return false
     }
 
-    const changeCharacterType = (event) => {
+    const changeCharacterType = (event: any) => {
         chosenCharacterType.value = event.value
         const bonuses = characterTypeBonuses[event.value]
         strengths.value = bonuses.strengths
