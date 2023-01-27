@@ -11,7 +11,7 @@ const removeItem = (index: number) => {
     inventory.value.splice(index, 1)
 }
 
-const addItem = (event: Event) => {
+const addItem = (event: any) => {
     const target = event.target ?? null;
     if (target !== null) {
         inventory.value.push(target?.value)
