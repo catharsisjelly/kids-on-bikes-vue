@@ -14,7 +14,7 @@ const removeItem = (index: number) => {
 const addItem = (event: Event) => {
     const target = event.target ?? null;
     if (target !== null) {
-        inventory.value.push(target.value)
+        inventory.value.push(target?.value)
     }
 }
 
