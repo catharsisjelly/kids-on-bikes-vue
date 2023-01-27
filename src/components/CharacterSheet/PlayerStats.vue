@@ -57,7 +57,7 @@ const changeAvailableDice = () => {
                     <div v-if="stats.fight">
                         <DiceRoller :notation="stats.fight" />
                     </div>
-                    <div v-if="chosenCharacterType.stats.fight"></div>
+                    <div v-if="stats.fight"></div>
                 </div>
                 <div>
                     <div>Flight</div>
