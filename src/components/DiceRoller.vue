@@ -8,7 +8,7 @@ const result = ref()
 const error = ref('')
 
 const props = defineProps({
-    notation: String
+    notation: String,
 })
 
 const roll = () => {
@@ -18,7 +18,7 @@ const roll = () => {
         result.value = new DiceRoll(`${props.notation}`)
     } catch (e: any) {
         error.value = `There was an error`
-        console.error(e);
+        console.error(e)
     }
 }
 </script>
