@@ -12,7 +12,6 @@ const error = ref('')
 const roll = () => {
     error.value = ''
 
-    console.log(props.notation)
     try {
         results.value = new DiceRoll(`${props.notation}!`)
     } catch (e: any) {

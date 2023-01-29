@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 export const useCharacterSheet = defineStore('characterSheet', () => {
     const adversityTokens = ref(0)
 
-    const characterTypeBonuses = {
+    const characterTypeBonuses: any = {
         kid: {
             strengths: ['Quick Healing'],
             stats: {
