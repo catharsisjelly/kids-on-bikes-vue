@@ -50,14 +50,14 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
         grit: undefined,
     })
 
-    const diceAvailable = [
+    const diceAvailable = ref([
         { name: 'D4', value: 'd4' },
         { name: 'D6', value: 'd6' },
         { name: 'D8', value: 'd8' },
         { name: 'D10', value: 'd10' },
         { name: 'D12', value: 'd12' },
         { name: 'D20', value: 'd20' },
-    ]
+    ])
 
     const checkDuplicateDice = (): Boolean => {
         const values = Object.values(unref(statDice))

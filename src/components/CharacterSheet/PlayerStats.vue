@@ -33,6 +33,7 @@ const changeAvailableDice = () => {
                 <div>
                     <div>Fight</div>
                     <Dropdown
+                        v-model="statDice.fight"
                         inputId="fight"
                         :options="diceAvailable"
                         optionLabel="name"
@@ -40,58 +41,78 @@ const changeAvailableDice = () => {
                         placeholder="Select a Dice"
                     />
                     <div>
-                        <DiceRoller notation="d4" />
+                        <DiceRoller :notation="statDice.fight" />
                     </div>
                 </div>
                 <div>
                     <div>Flight</div>
                     <Dropdown
+                        v-model="statDice.flight"
                         inputId="flight"
                         :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
                     />
+                    <div>
+                        <DiceRoller :notation="statDice.flight" />
+                    </div>
                 </div>
                 <div>
                     <div>Brains</div>
                     <Dropdown
+                        v-model="statDice.brains"
                         inputId="brains"
                         :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
                     />
+                    <div>
+                        <DiceRoller :notation="statDice.brains" />
+                    </div>
                 </div>
                 <div>
                     <div>Brawn</div>
                     <Dropdown
+                        v-model="statDice.brawn"
                         inputId="brawn"
                         :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
                     />
+                    <div>
+                        <DiceRoller :notation="statDice.brawn" />
+                    </div>
                 </div>
                 <div>
                     <div>Charm</div>
                     <Dropdown
+                        v-model="statDice.charm"
                         inputId="charm"
                         :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
                     />
+                    <div>
+                        <DiceRoller :notation="statDice.charm" />
+                    </div>
                 </div>
                 <div>
                     <div>Grit</div>
                     <Dropdown
+                        v-model="statDice.grit"
                         inputId="grit"
                         :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
                     />
+                    <div>
+                        <DiceRoller :notation="statDice.grit" />
+                    </div>
                 </div>
             </Fieldset>
         </div>
