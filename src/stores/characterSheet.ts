@@ -87,6 +87,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
         notes,
         strengths,
         statDice,
+        diceAvailable,
         checkDuplicateDice,
         changeCharacterType,
     }
