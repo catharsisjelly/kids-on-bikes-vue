@@ -122,5 +122,9 @@ const changeAvailableDice = () => {
                 </div>
             </Fieldset>
         </div>
+        <div>
+            <h2>Dice Results</h2>
+            <p></p>
+        </div>
     </div>
 </template>

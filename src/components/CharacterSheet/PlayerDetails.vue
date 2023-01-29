@@ -11,7 +11,7 @@ const { characterDetails } = storeToRefs(store)
 </script>
 
 <template>
-    <div>
+    <div class="flex-1 flex">
         <Fieldset legend="Character Details">
             <div>
                 <label for="name" class="col-fixed">Name</label>
