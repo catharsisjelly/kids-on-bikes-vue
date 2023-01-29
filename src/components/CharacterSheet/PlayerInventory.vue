@@ -12,12 +12,11 @@ const removeItem = (index: number) => {
 }
 
 const addItem = (event: any) => {
-    const target = event.target ?? null;
+    const target = event.target ?? null
     if (target !== null) {
         inventory.value.push(target?.value)
     }
 }
-
 </script>
 
 <template>

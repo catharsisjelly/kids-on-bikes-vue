@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, unref } from 'vue'
+import { ref } from 'vue'
 import Button from 'primevue/button'
 import { DiceRoll } from '@dice-roller/rpg-dice-roller'
 
@@ -12,14 +12,13 @@ const error = ref('')
 const roll = () => {
     error.value = ''
 
-    console.log(props.notation);
+    console.log(props.notation)
     try {
         results.value = new DiceRoll(`${props.notation}!`)
     } catch (e: any) {
         error.value = `There was an error`
     }
 }
-
 </script>
 
 <template>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, unref } from 'vue'
+import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown'
 import Fieldset from 'primevue/fieldset'
 import DiceRoller from '../DiceRoller.vue'
-import { useCharacterSheet } from '@/stores/characterSheet';
-import { storeToRefs } from 'pinia';
+import { useCharacterSheet } from '@/stores/characterSheet'
+import { storeToRefs } from 'pinia'
 
 const store = useCharacterSheet()
 const { diceAvailable, statDice } = storeToRefs(store)
@@ -12,7 +12,7 @@ const { diceAvailable, statDice } = storeToRefs(store)
 const displayError = ref(false)
 
 const changeAvailableDice = () => {
-    const values = Object.values(unref(stats))
+    const values = Object.values(statDice)
 
     const duplicates = values.filter(
         (currentValue: undefined, currentIndex: number) =>
@@ -39,8 +39,9 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
+                        @change="changeAvailableDice"
                     />
-                    <div>
+                    <div v-if="statDice.fight">
                         <DiceRoller :notation="statDice.fight" />
                     </div>
                 </div>
@@ -53,8 +54,9 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
+                        @change="changeAvailableDice"
                     />
-                    <div>
+                    <div v-if="statDice.flight">
                         <DiceRoller :notation="statDice.flight" />
                     </div>
                 </div>
@@ -67,8 +69,9 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
+                        @change="changeAvailableDice"
                     />
-                    <div>
+                    <div v-if="statDice.brains">
                         <DiceRoller :notation="statDice.brains" />
                     </div>
                 </div>
@@ -81,8 +84,9 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
+                        @change="changeAvailableDice"
                     />
-                    <div>
+                    <div v-if="statDice.brawn">
                         <DiceRoller :notation="statDice.brawn" />
                     </div>
                 </div>
@@ -95,8 +99,9 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
+                        @change="changeAvailableDice"
                     />
-                    <div>
+                    <div v-if="statDice.charm">
                         <DiceRoller :notation="statDice.charm" />
                     </div>
                 </div>
@@ -109,8 +114,9 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
+                        @change="changeAvailableDice"
                     />
-                    <div>
+                    <div v-if="statDice.grit">
                         <DiceRoller :notation="statDice.grit" />
                     </div>
                 </div>
