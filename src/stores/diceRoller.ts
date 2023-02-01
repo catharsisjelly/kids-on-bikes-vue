@@ -1,10 +1,9 @@
 import { ref, type Ref } from 'vue'
 import { defineStore } from 'pinia'
-import { DiceRoll } from '@dice-roller/rpg-dice-roller'
 
 interface RollLogEntry {
     date: Date
-    roll: DiceRoll
+    roll: any
 }
 
 export const useDiceRollerLog = defineStore('DiceRollerLog', () => {
