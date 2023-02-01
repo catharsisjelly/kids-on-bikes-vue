@@ -8,21 +8,10 @@ import { storeToRefs } from 'pinia'
 
 const store = useCharacterSheet()
 const { diceAvailable, statDice } = storeToRefs(store)
+const { } = store
 
 const displayError = ref(false)
 
-const changeAvailableDice = () => {
-    const values = Object.values(statDice)
-
-    const duplicates = values.filter(
-        (currentValue: undefined, currentIndex: number) =>
-            typeof currentValue === 'string' && values.indexOf(currentValue) !== currentIndex
-    )
-
-    if (duplicates.length >= 1) {
-        displayError.value = true
-    }
-}
 </script>
 
 <template>
@@ -39,7 +28,7 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
                     <div v-if="statDice.fight">
                         <DiceRoller :notation="statDice.fight" />
@@ -54,7 +43,7 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
                     <div v-if="statDice.flight">
                         <DiceRoller :notation="statDice.flight" />
@@ -69,7 +58,7 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
                     <div v-if="statDice.brains">
                         <DiceRoller :notation="statDice.brains" />
@@ -84,7 +73,7 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
                     <div v-if="statDice.brawn">
                         <DiceRoller :notation="statDice.brawn" />
@@ -99,7 +88,7 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
                     <div v-if="statDice.charm">
                         <DiceRoller :notation="statDice.charm" />
@@ -114,7 +103,7 @@ const changeAvailableDice = () => {
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
                     <div v-if="statDice.grit">
                         <DiceRoller :notation="statDice.grit" />
