@@ -3,22 +3,28 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-    <header>
-        <div>
-            <nav>
-                <RouterLink to="/">Home</RouterLink>
-            </nav>
-        </div>
-    </header>
+    <div id="app">
+        <header>
+            <div>
+                <nav>
+                    <RouterLink to="/">Home</RouterLink>
+                </nav>
+            </div>
+        </header>
 
-    <div class="wrapper">
-        <RouterView />
+        <div class="wrapper">
+            <RouterView />
+        </div>
     </div>
 </template>
 
 <style scoped>
-body #app header {
-    margin: 0;
-    padding: 0;
+#app {
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-radius: var(--border-radius);
+    color: var(--gray-700);
+    padding: 4rem;
 }
 </style>

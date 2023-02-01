@@ -1,41 +1,15 @@
 <script setup lang="ts">
-import { ref, unref } from 'vue'
+import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown'
 import Fieldset from 'primevue/fieldset'
+import DiceRoller from '../DiceRoller.vue'
+import { useCharacterSheet } from '@/stores/characterSheet'
+import { storeToRefs } from 'pinia'
 
-const availableDice = ref([
-    { name: 'D4', value: 'd4' },
-    { name: 'D6', value: 'd6' },
-    { name: 'D8', value: 'd8' },
-    { name: 'D10', value: 'd10' },
-    { name: 'D12', value: 'd12' },
-    { name: 'D20', value: 'd20' },
-])
-
-const stats = ref({
-    flight: undefined,
-    fight: undefined,
-    brains: undefined,
-    brawn: undefined,
-    charm: undefined,
-    grit: undefined,
-})
+const store = useCharacterSheet()
+const { diceAvailable, statDice } = storeToRefs(store)
 
 const displayError = ref(false)
-
-const changeAvailableDice = () => {
-    const values = Object.values(unref(stats))
-
-    const duplicates = values.filter(
-        (currentValue: undefined, currentIndex: number) =>
-            typeof currentValue === 'string' &&
-            values.indexOf(currentValue) !== currentIndex
-    )
-
-    if (duplicates.length >= 1) {
-        displayError.value = true
-    }
-}
 </script>
 
 <template>
@@ -46,76 +20,98 @@ const changeAvailableDice = () => {
                 <div>
                     <div>Fight</div>
                     <Dropdown
-                        v-model="stats.fight"
+                        v-model="statDice.fight"
                         inputId="fight"
-                        :options="availableDice"
+                        :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
+                    <div v-if="statDice.fight">
+                        <DiceRoller :notation="statDice.fight" />
+                    </div>
                 </div>
                 <div>
                     <div>Flight</div>
                     <Dropdown
-                        v-model="stats.flight"
+                        v-model="statDice.flight"
                         inputId="flight"
-                        :options="availableDice"
+                        :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
+                    <div v-if="statDice.flight">
+                        <DiceRoller :notation="statDice.flight" />
+                    </div>
                 </div>
                 <div>
                     <div>Brains</div>
                     <Dropdown
-                        v-model="stats.brains"
+                        v-model="statDice.brains"
                         inputId="brains"
-                        :options="availableDice"
+                        :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
+                    <div v-if="statDice.brains">
+                        <DiceRoller :notation="statDice.brains" />
+                    </div>
                 </div>
                 <div>
                     <div>Brawn</div>
                     <Dropdown
-                        v-model="stats.brawn"
+                        v-model="statDice.brawn"
                         inputId="brawn"
-                        :options="availableDice"
+                        :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
+                    <div v-if="statDice.brawn">
+                        <DiceRoller :notation="statDice.brawn" />
+                    </div>
                 </div>
                 <div>
                     <div>Charm</div>
                     <Dropdown
-                        v-model="stats.charm"
+                        v-model="statDice.charm"
                         inputId="charm"
-                        :options="availableDice"
+                        :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
+                    <div v-if="statDice.charm">
+                        <DiceRoller :notation="statDice.charm" />
+                    </div>
                 </div>
                 <div>
                     <div>Grit</div>
                     <Dropdown
-                        v-model="stats.grit"
+                        v-model="statDice.grit"
                         inputId="grit"
-                        :options="availableDice"
+                        :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
-                        @change="changeAvailableDice"
+                        @change="store.checkDuplicateDice"
                     />
+                    <div v-if="statDice.grit">
+                        <DiceRoller :notation="statDice.grit" />
+                    </div>
                 </div>
             </Fieldset>
+        </div>
+        <div>
+            <h2>Dice Results</h2>
+            <p></p>
         </div>
     </div>
 </template>
