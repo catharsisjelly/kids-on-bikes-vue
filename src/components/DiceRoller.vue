@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import Button from 'primevue/button'
 import { DiceRoll } from '@dice-roller/rpg-dice-roller'
 import { useDiceRollerLog } from '@/stores/diceRoller'
-import { storeToRefs } from 'pinia'
 
 const store = useDiceRollerLog()
 
