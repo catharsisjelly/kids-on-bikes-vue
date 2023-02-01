@@ -20,11 +20,11 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
 #app {
-  font-family: var(--font-family);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  border-radius: var(--border-radius);
-  color: var(--gray-700);
-  padding: 4rem;
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-radius: var(--border-radius);
+    color: var(--gray-700);
+    padding: 4rem;
 }
 </style>

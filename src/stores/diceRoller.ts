@@ -15,12 +15,12 @@ export const useDiceRollerLog = defineStore('DiceRollerLog', () => {
     }
 
     const clearLog = () => {
-        diceRollerLog.value = [];
+        diceRollerLog.value = []
     }
 
     return {
         diceRollerLog,
         addToLog,
-        clearLog
+        clearLog,
     }
 })

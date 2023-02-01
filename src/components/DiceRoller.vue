@@ -19,7 +19,7 @@ const roll = () => {
         const results = new DiceRoll(`${props.notation}!`)
         store.addToLog({
             date: new Date(),
-            roll: results
+            roll: results,
         })
     } catch (e: any) {
         error.value = `There was an error`

@@ -10,7 +10,7 @@ const { diceRollerLog } = storeToRefs(store)
 <template>
     <div>
         <div v-for="(logEntry, index) in diceRollerLog.reverse()" :key="index">
-            <p>{{ logEntry.date.toLocaleDateString() }} {{logEntry.roll.rolls[0].value}}</p>
+            <p>{{ logEntry.date.toLocaleDateString() }} {{ logEntry.roll.rolls[0].value }}</p>
         </div>
     </div>
 </template>

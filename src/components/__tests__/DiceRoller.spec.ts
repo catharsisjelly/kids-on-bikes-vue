@@ -9,12 +9,12 @@ describe('Dice Roller', () => {
         const wrapper = mount(DiceRoller, {
             global: { plugins: [createTestingPinia({ createSpy: vi.fn })] },
             props: {
-                notation: "d6"
+                notation: 'd6',
             },
         })
 
         const rollButton = wrapper.get('button')
-        expect(rollButton.text()).toContain('Roll')        
+        expect(rollButton.text()).toContain('Roll')
     })
 
     // it('Displays the player results after clicking Roll', async () => {
