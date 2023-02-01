@@ -8,10 +8,8 @@ import { storeToRefs } from 'pinia'
 
 const store = useCharacterSheet()
 const { diceAvailable, statDice } = storeToRefs(store)
-const { } = store
 
 const displayError = ref(false)
-
 </script>
 
 <template>
