@@ -7,7 +7,8 @@ import { useDiceRollerLog } from '@/stores/diceRoller'
 const store = useDiceRollerLog()
 
 const props = defineProps<{
-    notation: string
+    notation: string,
+    statName: string,
 }>()
 const error = ref('')
 const lastResult = ref(null)
@@ -18,6 +19,7 @@ const roll = () => {
     try {
         lastResult.value = new DiceRoll(`${props.notation}!`)
         store.addToLog({
+            statName: props.statName,
             date: new Date(),
             roll: lastResult.value,
         })

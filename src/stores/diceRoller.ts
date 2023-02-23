@@ -2,6 +2,7 @@ import { ref, type Ref } from 'vue'
 import { defineStore } from 'pinia'
 
 interface RollLogEntry {
+    statName: any
     date: Date
     roll: any
 }
@@ -9,8 +10,8 @@ interface RollLogEntry {
 export const useDiceRollerLog = defineStore('DiceRollerLog', () => {
     const diceRollerLog: Ref<Array<RollLogEntry>> = ref([])
 
-    const addToLog = (result: RollLogEntry) => {
-        diceRollerLog.value.push(result)
+    const addToLog = (entry: RollLogEntry) => {
+        diceRollerLog.value.push(entry)
     }
 
     const clearLog = () => {
