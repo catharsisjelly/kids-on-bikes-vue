@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, unref } from 'vue'
+import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown'
 import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
@@ -84,7 +84,7 @@ const displayError = ref(false)
                 <div v-for="(item, index) in stats" :key="index">
                     <div>
                         {{ item.name }} -
-                        <Button icon="pi pi-info-circle" @click="openDialog(item.name)" />
+                        <i class="pi pi-info-circle" @click="openDialog(item.name)"></i>
                     </div>
                     <Dropdown
                         v-model="statDice[item.name]"
@@ -100,17 +100,9 @@ const displayError = ref(false)
                         v-model:visible="displayDialogs[item.name.toLocaleLowerCase()]"
                     >
                         <div>{{ item.description }}</div>
-                        <template #footer>
-                            <Button
-                                label="Close"
-                                icon="pi pi-times"
-                                @click="closeDialog(item.name)"
-                                class="p-button-text"
-                            />
-                        </template>
                     </Dialog>
                     <div v-if="statDice[item.name]">
-                        <DiceRoller :notation="statDice[item.name]" />
+                        <DiceRoller :notation="statDice[item.name]"/>
                     </div>
                 </div>
             </Fieldset>

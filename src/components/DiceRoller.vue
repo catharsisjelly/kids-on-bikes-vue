@@ -10,15 +10,16 @@ const props = defineProps<{
     notation: string
 }>()
 const error = ref('')
+const lastResult = ref(null)
 
 const roll = () => {
     error.value = ''
 
     try {
-        const results = new DiceRoll(`${props.notation}!`)
+        lastResult.value = new DiceRoll(`${props.notation}!`)
         store.addToLog({
             date: new Date(),
-            roll: results,
+            roll: lastResult.value,
         })
     } catch (e: any) {
         error.value = `There was an error`
@@ -28,4 +29,7 @@ const roll = () => {
 
 <template>
     <Button label="Roll" @click="roll()" />
+    <slot name="result" v-bind="lastResult">
+        <p>{{ lastResult }}</p>
+    </slot>
 </template>
