@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown'
+import Dialog from 'primevue/dialog'
 import Fieldset from 'primevue/fieldset'
 import DiceRoller from '../DiceRoller.vue'
 import { useCharacterSheet } from '@/stores/characterSheet'
@@ -8,6 +9,74 @@ import { storeToRefs } from 'pinia'
 
 const store = useCharacterSheet()
 const { diceAvailable, statDice } = storeToRefs(store)
+const stats = [
+    {
+        name: 'fight',
+        title: 'Fight',
+        description:
+            'This stat determines how good a combatant a character is with whatever weapons or fighting skills you decide your character knows. While a character with a high Fight stat won’t be able to pick up a gun and use it effectively if they have never fired one before, this stat will make them good with weapons that they do have experience with. Also, they&apos;ll be able to learn how to use new weapons and fighting skills more easily, if given proper training.',
+    },
+    {
+        name: 'flight',
+        title: 'Flight',
+        description:
+            'Flight: This stat determines how fast a character is — as well as how skilled they are at evading their problems (both literally and figuratively). Characters with a high Flight stat will be fast and tough to trap both physically and verbally.',
+    },
+    {
+        name: 'brains',
+        title: 'Brains',
+        description:
+            'This stat determines how book-smart a character is. This will determine how well they understand problems, how well they did or are doing in school, and how quickly they’re able to solve academic problems.',
+    },
+    {
+        name: 'brawn',
+        title: 'Brawn',
+        description:
+            'This stat determines how much brute strength a character has. It does not determine how well they can fight — just how well they can lift things and how much physical damage they can take. It also determines how physically intimidating a character is.',
+    },
+    {
+        name: 'charm',
+        title: 'Charm',
+        description:
+            'This stat determines how socially adept a character is and how good they are at reading the emotions of another person or group of people. Characters with a high Charm stat will be able to talk themselves out of tough situations and into good ones with relative ease — within reason.',
+    },
+    {
+        name: 'grit',
+        title: 'Grit',
+        description:
+            'This stat determines how hard it is to break a character emotionally or physically. Characters with a high Grit stat will be able to keep a level head in the worst of situations and will be able to keep their cool even when pushed hard. Finally, this stat also determines how street-smart a character is.',
+    },
+]
+
+const displayDialogs = ref({
+    flight: false,
+    fight: false,
+    brains: false,
+    brawn: false,
+    grit: false,
+    charm: false,
+})
+
+const openDialog = (item: string) => {
+    for (const [key] of Object.entries(displayDialogs.value)) {
+        if (key === item) {
+            displayDialogs.value[key] = true
+        } else {
+            displayDialogs.value[key] = false
+        }
+    }
+    console.log(displayDialogs.value)
+}
+
+const closeDialog = (item: string) => {
+    for (const [key] of Object.entries(displayDialogs.value)) {
+        displayDialogs.value[key] = false
+    }
+}
+
+const isOpen = (item: string) => {
+    return displayDialogs.value[item]
+}
 
 const displayError = ref(false)
 </script>
@@ -17,94 +86,25 @@ const displayError = ref(false)
         <div v-if="displayError">You should only have one of each dice</div>
         <div>
             <Fieldset legend="Stats">
-                <div>
-                    <div>Fight</div>
-                    <Dropdown
-                        v-model="statDice.fight"
-                        inputId="fight"
-                        :options="diceAvailable"
-                        optionLabel="name"
-                        optionValue="value"
-                        placeholder="Select a Dice"
-                        @change="store.checkDuplicateDice"
-                    />
-                    <div v-if="statDice.fight">
-                        <DiceRoller :notation="statDice.fight" />
+                <div v-for="(item, index) in stats" :key="index">
+                    <div>
+                        {{ item.title }} -
+                        <i class="pi pi-info-circle" @click="openDialog(item.name)"></i>
                     </div>
-                </div>
-                <div>
-                    <div>Flight</div>
                     <Dropdown
-                        v-model="statDice.flight"
-                        inputId="flight"
+                        v-model="statDice[item.name]"
+                        :inputId="item.name"
                         :options="diceAvailable"
                         optionLabel="name"
                         optionValue="value"
                         placeholder="Select a Dice"
                         @change="store.checkDuplicateDice"
                     />
-                    <div v-if="statDice.flight">
-                        <DiceRoller :notation="statDice.flight" />
-                    </div>
-                </div>
-                <div>
-                    <div>Brains</div>
-                    <Dropdown
-                        v-model="statDice.brains"
-                        inputId="brains"
-                        :options="diceAvailable"
-                        optionLabel="name"
-                        optionValue="value"
-                        placeholder="Select a Dice"
-                        @change="store.checkDuplicateDice"
-                    />
-                    <div v-if="statDice.brains">
-                        <DiceRoller :notation="statDice.brains" />
-                    </div>
-                </div>
-                <div>
-                    <div>Brawn</div>
-                    <Dropdown
-                        v-model="statDice.brawn"
-                        inputId="brawn"
-                        :options="diceAvailable"
-                        optionLabel="name"
-                        optionValue="value"
-                        placeholder="Select a Dice"
-                        @change="store.checkDuplicateDice"
-                    />
-                    <div v-if="statDice.brawn">
-                        <DiceRoller :notation="statDice.brawn" />
-                    </div>
-                </div>
-                <div>
-                    <div>Charm</div>
-                    <Dropdown
-                        v-model="statDice.charm"
-                        inputId="charm"
-                        :options="diceAvailable"
-                        optionLabel="name"
-                        optionValue="value"
-                        placeholder="Select a Dice"
-                        @change="store.checkDuplicateDice"
-                    />
-                    <div v-if="statDice.charm">
-                        <DiceRoller :notation="statDice.charm" />
-                    </div>
-                </div>
-                <div>
-                    <div>Grit</div>
-                    <Dropdown
-                        v-model="statDice.grit"
-                        inputId="grit"
-                        :options="diceAvailable"
-                        optionLabel="name"
-                        optionValue="value"
-                        placeholder="Select a Dice"
-                        @change="store.checkDuplicateDice"
-                    />
-                    <div v-if="statDice.grit">
-                        <DiceRoller :notation="statDice.grit" />
+                    <Dialog :header="item.title" v-model:visible="displayDialogs[item.name]">
+                        <div>{{ item.description }}</div>
+                    </Dialog>
+                    <div v-if="statDice[item.name]">
+                        <DiceRoller :notation="statDice[item.name]" :statName="item.name" />
                     </div>
                 </div>
             </Fieldset>

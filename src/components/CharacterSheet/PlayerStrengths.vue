@@ -52,7 +52,7 @@ const strengthsAvailable = [
     {
         label: 'Rebellious',
         description:
-            'Add + 3 to rolls when persuading or resisting persuasion from children.Add + 3 to rolls when resisting persuasion from adults.',
+            'Add +3 to rolls when persuading or resisting persuasion from children.Add + 3 to rolls when resisting persuasion from adults.',
     },
     {
         label: 'Skilled at',
@@ -62,7 +62,7 @@ const strengthsAvailable = [
     {
         label: 'Tough',
         description:
-            'If you lose a combat roll, add + 3 to the negative number.You still lose the roll no matter what, but could reduce your loss to - 1.',
+            'If you lose a combat roll, add +3 to the negative number.You still lose the roll no matter what, but could reduce your loss to -1.',
     },
     {
         label: 'Treasure Hunter',

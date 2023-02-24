@@ -11,7 +11,8 @@ const { diceRollerLog } = storeToRefs(store)
         <div v-for="(logEntry, index) in diceRollerLog.reverse()" :key="index">
             <!-- <pre>{{ JSON.stringify(logEntry.roll) }}</pre> -->
             <p>
-                {{ logEntry.date.toLocaleString() }} - {{ logEntry.roll.notation }} -
+                {{ logEntry.date.toLocaleString() }} - {{ logEntry.statName }} -
+                {{ logEntry.roll.notation }} -
                 {{ logEntry.roll.rolls[0].value }}
             </p>
         </div>
