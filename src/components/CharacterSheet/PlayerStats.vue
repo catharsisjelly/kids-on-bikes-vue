@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import Dropdown from 'primevue/dropdown'
 import Dialog from 'primevue/dialog'
+import InputNumber from 'primevue/inputnumber'
 import Fieldset from 'primevue/fieldset'
 import DiceRoller from '../DiceRoller.vue'
 import { useCharacterSheet } from '@/stores/characterSheet'
@@ -57,6 +58,15 @@ const displayDialogs = ref({
     charm: false,
 })
 
+const statBonus = ref({
+    flight: 0,
+    fight: 0,
+    brains: 0,
+    brawn: 0,
+    grit: 0,
+    charm: 0,
+})
+
 const openDialog = (item: string) => {
     for (const [key] of Object.entries(displayDialogs.value)) {
         if (key === item) {
@@ -65,17 +75,6 @@ const openDialog = (item: string) => {
             displayDialogs.value[key] = false
         }
     }
-    console.log(displayDialogs.value)
-}
-
-const closeDialog = (item: string) => {
-    for (const [key] of Object.entries(displayDialogs.value)) {
-        displayDialogs.value[key] = false
-    }
-}
-
-const isOpen = (item: string) => {
-    return displayDialogs.value[item]
 }
 
 const displayError = ref(false)
@@ -91,20 +90,17 @@ const displayError = ref(false)
                         {{ item.title }} -
                         <i class="pi pi-info-circle" @click="openDialog(item.name)"></i>
                     </div>
-                    <Dropdown
-                        v-model="statDice[item.name]"
-                        :inputId="item.name"
-                        :options="diceAvailable"
-                        optionLabel="name"
-                        optionValue="value"
-                        placeholder="Select a Dice"
-                        @change="store.checkDuplicateDice"
-                    />
+                    <Dropdown v-model="statDice[item.name]" :inputId="item.name" :options="diceAvailable" optionLabel="name"
+                        optionValue="value" placeholder="Select a Dice" @change="store.checkDuplicateDice" />
+                    <InputNumber inputId="horizontal" v-model="statBonus[item.name]" showButtons
+                        buttonLayout="horizontal" decrementButtonClass="p-button-danger"
+                        incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
+                        decrementButtonIcon="pi pi-minus" mode="decimal" />
                     <Dialog :header="item.title" v-model:visible="displayDialogs[item.name]">
                         <div>{{ item.description }}</div>
                     </Dialog>
                     <div v-if="statDice[item.name]">
-                        <DiceRoller :notation="statDice[item.name]" :statName="item.name" />
+                        <DiceRoller :notation="statDice[item.name]" :statName="item.title" />
                     </div>
                 </div>
             </Fieldset>
