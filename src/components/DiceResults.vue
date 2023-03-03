@@ -12,8 +12,7 @@ const { diceRollerLog } = storeToRefs(store)
             <!-- <pre>{{ JSON.stringify(logEntry.roll) }}</pre> -->
             <p>
                 {{ logEntry.date.toLocaleString() }} - {{ logEntry.statName }} -
-                {{ logEntry.roll.notation }} -
-                {{ logEntry.roll.rolls[0].value }}
+                {{ logEntry.roll }}
             </p>
         </div>
     </div>

@@ -18,7 +18,7 @@ const roll = () => {
     error.value = ''
 
     try {
-        lastResult.value = new DiceRoll(`${props.notation}!`)
+        lastResult.value = new DiceRoll(props.notation)
         
         store.addToLog({
             statName: props.statName,

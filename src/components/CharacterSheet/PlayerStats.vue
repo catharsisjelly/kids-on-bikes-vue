@@ -77,6 +77,10 @@ const openDialog = (item: string) => {
     }
 }
 
+const getNotation = (item: string) => {
+    return `${statDice.value[item]}! +${statBonus.value[item]}`
+}
+
 const displayError = ref(false)
 </script>
 
@@ -100,7 +104,7 @@ const displayError = ref(false)
                         <div>{{ item.description }}</div>
                     </Dialog>
                     <div v-if="statDice[item.name]">
-                        <DiceRoller :notation="statDice[item.name]" :statName="item.title" />
+                        <DiceRoller :notation="getNotation(item.name)" :statName="item.title" />
                     </div>
                 </div>
             </Fieldset>
