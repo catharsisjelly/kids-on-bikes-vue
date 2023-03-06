@@ -11,6 +11,7 @@ describe('Dice Roller', () => {
             },
             props: {
                 notation: 'd6',
+                statName: 'test'
             },
         })
 
