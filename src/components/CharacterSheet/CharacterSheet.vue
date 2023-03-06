@@ -10,7 +10,7 @@ import DiceResults from '../DiceResults.vue'
 </script>
 
 <template>
-    <PlayerType />
+    <!-- <PlayerType /> -->
     <!-- <PlayerDetails /> -->
     <PlayerStats />
     <!-- <PlayerStrengths /> -->
