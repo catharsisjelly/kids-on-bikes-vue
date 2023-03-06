@@ -8,18 +8,18 @@ import { useDiceRollerLog } from '@/stores/diceRoller'
 const store = useDiceRollerLog()
 
 const props = defineProps<{
-    notation: string,
+    notation: string
     statName: string
 }>()
 const error = ref('')
-const lastResult: Ref<DiceRoll|null> = ref(null)
+const lastResult: Ref<DiceRoll | null> = ref(null)
 
 const roll = () => {
     error.value = ''
 
     try {
         lastResult.value = new DiceRoll(props.notation)
-        
+
         store.addToLog({
             statName: props.statName,
             date: new Date(),
