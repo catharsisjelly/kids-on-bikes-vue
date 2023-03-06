@@ -96,7 +96,7 @@ const displayError = ref(false)
                     </div>
                     <Dropdown v-model="statDice[item.name]" :inputId="item.name" :options="diceAvailable" optionLabel="name"
                         optionValue="value" placeholder="Select a Dice" @change="store.checkDuplicateDice" />
-                    <InputNumber inputId="horizontal" v-model="statBonus[item.name]" showButtons
+                    <InputNumber v-if="statDice[item.name]" inputId="horizontal" v-model="statBonus[item.name]" showButtons
                         buttonLayout="horizontal" decrementButtonClass="p-button-danger"
                         incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
                         decrementButtonIcon="pi pi-minus" mode="decimal" />
