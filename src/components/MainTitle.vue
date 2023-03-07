@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import CharacterSheet from './CharacterSheet/CharacterSheet.vue'
 </script>
 
 <template>
-    <div>
-        <h1>Kids on Bikes Helper</h1>
+  <div class="card">
+    <div class="flex card-container">
+      <h1>Kids on Bikes Helper</h1>
     </div>
-    <CharacterSheet />
+  </div>
 </template>
