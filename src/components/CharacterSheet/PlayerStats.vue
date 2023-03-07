@@ -72,21 +72,6 @@ const getNotation = (item: string) => {
   return `${statDice.value[item]}! +${statBonus.value[item]}`
 }
 
-const diceDuplicateError = ref(false)
-
-const checkDuplicateDice = () => {
-  const values = Object.values(statDice.value)
-
-  const duplicates = values.filter(
-    (currentValue: string, currentIndex: number) =>
-      typeof currentValue === 'string' && values.indexOf(currentValue) !== currentIndex
-  )
-
-  if (duplicates.length >= 1) {
-    diceDuplicateError.value = true
-  }
-  diceDuplicateError.value = false
-}
 </script>
 
 <template>
@@ -107,7 +92,6 @@ const checkDuplicateDice = () => {
           optionLabel="name"
           optionValue="value"
           placeholder="Select a Dice"
-          @change="checkDuplicateDice"
         />
         <InputNumber
           v-if="statDice[item.name]"
