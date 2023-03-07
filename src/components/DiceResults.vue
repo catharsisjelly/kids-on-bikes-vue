@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useDiceRollerLog } from '@/stores/diceRoller'
 import { computed } from 'vue'
-import type { ComputedRef } from 'vue'
 
 const store = useDiceRollerLog()
 const log: any = computed(() => {
