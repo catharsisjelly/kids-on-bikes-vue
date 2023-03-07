@@ -4,7 +4,7 @@ import { computed } from 'vue'
 
 const store = useDiceRollerLog()
 const log: any = computed(() => {
-  return store.diceRollerLog.reverse()
+  return store.diceRollerLog.slice().reverse()
 })
 </script>
 
