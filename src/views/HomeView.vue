@@ -3,5 +3,5 @@ import MainTitle from '@/components/MainTitle.vue'
 </script>
 
 <template>
-    <MainTitle />
+  <MainTitle />
 </template>

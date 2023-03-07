@@ -10,12 +10,12 @@ import DiceResults from '../DiceResults.vue'
 </script>
 
 <template>
-    <!-- <PlayerType /> -->
-    <!-- <PlayerDetails /> -->
-    <PlayerStats />
-    <!-- <PlayerStrengths /> -->
-    <!-- <PlayerInventory /> -->
-    <!-- <AdversityTokens /> -->
-    <!-- <PlayerNotes /> -->
-    <DiceResults />
+  <!-- <PlayerType /> -->
+  <!-- <PlayerDetails /> -->
+  <PlayerStats />
+  <!-- <PlayerStrengths /> -->
+  <!-- <PlayerInventory /> -->
+  <!-- <AdversityTokens /> -->
+  <!-- <PlayerNotes /> -->
+  <DiceResults />
 </template>

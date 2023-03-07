@@ -9,124 +9,122 @@ import { useCharacterSheet } from '@/stores/characterSheet'
 import { storeToRefs } from 'pinia'
 
 const store = useCharacterSheet()
-const { diceAvailable, statDice }: any = storeToRefs(store)
+const { diceAvailable, statDice, statBonus }: any = storeToRefs(store)
 const stats = [
-    {
-        name: 'fight',
-        title: 'Fight',
-        description:
-            'This stat determines how good a combatant a character is with whatever weapons or fighting skills you decide your character knows. While a character with a high Fight stat won’t be able to pick up a gun and use it effectively if they have never fired one before, this stat will make them good with weapons that they do have experience with. Also, they&apos;ll be able to learn how to use new weapons and fighting skills more easily, if given proper training.',
-    },
-    {
-        name: 'flight',
-        title: 'Flight',
-        description:
-            'Flight: This stat determines how fast a character is — as well as how skilled they are at evading their problems (both literally and figuratively). Characters with a high Flight stat will be fast and tough to trap both physically and verbally.',
-    },
-    {
-        name: 'brains',
-        title: 'Brains',
-        description:
-            'This stat determines how book-smart a character is. This will determine how well they understand problems, how well they did or are doing in school, and how quickly they’re able to solve academic problems.',
-    },
-    {
-        name: 'brawn',
-        title: 'Brawn',
-        description:
-            'This stat determines how much brute strength a character has. It does not determine how well they can fight — just how well they can lift things and how much physical damage they can take. It also determines how physically intimidating a character is.',
-    },
-    {
-        name: 'charm',
-        title: 'Charm',
-        description:
-            'This stat determines how socially adept a character is and how good they are at reading the emotions of another person or group of people. Characters with a high Charm stat will be able to talk themselves out of tough situations and into good ones with relative ease — within reason.',
-    },
-    {
-        name: 'grit',
-        title: 'Grit',
-        description:
-            'This stat determines how hard it is to break a character emotionally or physically. Characters with a high Grit stat will be able to keep a level head in the worst of situations and will be able to keep their cool even when pushed hard. Finally, this stat also determines how street-smart a character is.',
-    },
+  {
+    name: 'fight',
+    title: 'Fight',
+    description:
+      'This stat determines how good a combatant a character is with whatever weapons or fighting skills you decide your character knows. While a character with a high Fight stat won’t be able to pick up a gun and use it effectively if they have never fired one before, this stat will make them good with weapons that they do have experience with. Also, they&apos;ll be able to learn how to use new weapons and fighting skills more easily, if given proper training.'
+  },
+  {
+    name: 'flight',
+    title: 'Flight',
+    description:
+      'Flight: This stat determines how fast a character is — as well as how skilled they are at evading their problems (both literally and figuratively). Characters with a high Flight stat will be fast and tough to trap both physically and verbally.'
+  },
+  {
+    name: 'brains',
+    title: 'Brains',
+    description:
+      'This stat determines how book-smart a character is. This will determine how well they understand problems, how well they did or are doing in school, and how quickly they’re able to solve academic problems.'
+  },
+  {
+    name: 'brawn',
+    title: 'Brawn',
+    description:
+      'This stat determines how much brute strength a character has. It does not determine how well they can fight — just how well they can lift things and how much physical damage they can take. It also determines how physically intimidating a character is.'
+  },
+  {
+    name: 'charm',
+    title: 'Charm',
+    description:
+      'This stat determines how socially adept a character is and how good they are at reading the emotions of another person or group of people. Characters with a high Charm stat will be able to talk themselves out of tough situations and into good ones with relative ease — within reason.'
+  },
+  {
+    name: 'grit',
+    title: 'Grit',
+    description:
+      'This stat determines how hard it is to break a character emotionally or physically. Characters with a high Grit stat will be able to keep a level head in the worst of situations and will be able to keep their cool even when pushed hard. Finally, this stat also determines how street-smart a character is.'
+  }
 ]
 
 const displayDialogs: any = ref({
-    flight: false,
-    fight: false,
-    brains: false,
-    brawn: false,
-    grit: false,
-    charm: false,
-})
-
-const statBonus: any = ref({
-    flight: 0,
-    fight: 0,
-    brains: 0,
-    brawn: 0,
-    grit: 0,
-    charm: 0,
+  flight: false,
+  fight: false,
+  brains: false,
+  brawn: false,
+  grit: false,
+  charm: false
 })
 
 const openDialog = (item: string) => {
-    for (const [key] of Object.entries(displayDialogs.value)) {
-        if (key === item) {
-            displayDialogs.value[key] = true
-        } else {
-            displayDialogs.value[key] = false
-        }
+  for (const [key] of Object.entries(displayDialogs.value)) {
+    if (key === item) {
+      displayDialogs.value[key] = true
+    } else {
+      displayDialogs.value[key] = false
     }
+  }
 }
 
 const getNotation = (item: string) => {
-    return `${statDice.value[item]}! +${statBonus.value[item]}`
+  return `${statDice.value[item]}! +${statBonus.value[item]}`
 }
 
-const displayError = ref(false)
+const diceDuplicateError = ref(false)
+
+const checkDuplicateDice = () => {
+  const values = Object.values(statDice.value)
+
+  const duplicates = values.filter(
+    (currentValue: string, currentIndex: number) =>
+      typeof currentValue === 'string' && values.indexOf(currentValue) !== currentIndex
+  )
+
+  if (duplicates.length >= 1) {
+    diceDuplicateError.value = true
+  }
+  diceDuplicateError.value = false
+}
 </script>
 
 <template>
-    <div>
-        <div v-if="displayError">You should only have one of each dice</div>
+  <div>
+    <Fieldset legend="Stats">
+      <div v-for="(item, index) in stats" :key="index">
         <div>
-            <Fieldset legend="Stats">
-                <div v-for="(item, index) in stats" :key="index">
-                    <div>
-                        {{ item.title }} -
-                        <i class="pi pi-info-circle" @click="openDialog(item.name)"></i>
-                    </div>
-                    <Dropdown
-                        v-model="statDice[item.name]"
-                        :inputId="item.name"
-                        :options="diceAvailable"
-                        optionLabel="name"
-                        optionValue="value"
-                        placeholder="Select a Dice"
-                        @change="store.checkDuplicateDice"
-                    />
-                    <InputNumber
-                        v-if="statDice[item.name]"
-                        inputId="horizontal"
-                        v-model="statBonus[item.name]"
-                        showButtons
-                        buttonLayout="horizontal"
-                        decrementButtonClass="p-button-danger"
-                        incrementButtonClass="p-button-success"
-                        incrementButtonIcon="pi pi-plus"
-                        decrementButtonIcon="pi pi-minus"
-                        mode="decimal"
-                    />
-                    <Dialog :header="item.title" v-model:visible="displayDialogs[item.name]">
-                        <div>{{ item.description }}</div>
-                    </Dialog>
-                    <div v-if="statDice[item.name]">
-                        <DiceRoller :notation="getNotation(item.name)" :statName="item.title" />
-                    </div>
-                </div>
-            </Fieldset>
+          {{ item.title }} -
+          <i class="pi pi-info-circle" @click="openDialog(item.name)"></i>
         </div>
-        <div>
-            <h2>Dice Results</h2>
-            <p></p>
+        <Dialog :header="item.title" v-model:visible="displayDialogs[item.name]">
+          <div>{{ item.description }}</div>
+        </Dialog>
+        <Dropdown
+          v-model="statDice[item.name]"
+          :inputId="item.name"
+          :options="diceAvailable"
+          optionLabel="name"
+          optionValue="value"
+          placeholder="Select a Dice"
+          @change="checkDuplicateDice"
+        />
+        <InputNumber
+          v-if="statDice[item.name]"
+          inputId="horizontal"
+          v-model="statBonus[item.name]"
+          showButtons
+          buttonLayout="horizontal"
+          decrementButtonClass="p-button-danger"
+          incrementButtonClass="p-button-success"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+          mode="decimal"
+        />
+        <div v-if="statDice[item.name]">
+          <DiceRoller :notation="getNotation(item.name)" :statName="item.title" />
         </div>
-    </div>
+      </div>
+    </Fieldset>
+  </div>
 </template>
