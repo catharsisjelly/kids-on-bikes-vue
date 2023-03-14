@@ -71,44 +71,41 @@ const openDialog = (item: string) => {
 const getNotation = (item: string) => {
   return `${statDice.value[item]}! +${statBonus.value[item]}`
 }
-
 </script>
 
 <template>
-  <div>
-    <Fieldset legend="Stats">
-      <div v-for="(item, index) in stats" :key="index">
-        <div>
-          {{ item.title }} -
-          <i class="pi pi-info-circle" @click="openDialog(item.name)"></i>
-        </div>
-        <Dialog :header="item.title" v-model:visible="displayDialogs[item.name]">
-          <div>{{ item.description }}</div>
-        </Dialog>
-        <Dropdown
-          v-model="statDice[item.name]"
-          :inputId="item.name"
-          :options="diceAvailable"
-          optionLabel="name"
-          optionValue="value"
-          placeholder="Select a Dice"
-        />
-        <InputNumber
-          v-if="statDice[item.name]"
-          inputId="horizontal"
-          v-model="statBonus[item.name]"
-          showButtons
-          buttonLayout="horizontal"
-          decrementButtonClass="p-button-danger"
-          incrementButtonClass="p-button-success"
-          incrementButtonIcon="pi pi-plus"
-          decrementButtonIcon="pi pi-minus"
-          mode="decimal"
-        />
-        <div v-if="statDice[item.name]">
-          <DiceRoller :notation="getNotation(item.name)" :statName="item.title" />
-        </div>
+  <Fieldset legend="Stats">
+    <div v-for="(item, index) in stats" :key="index">
+      <div>
+        {{ item.title }} -
+        <i class="pi pi-info-circle" @click="openDialog(item.name)"></i>
       </div>
-    </Fieldset>
-  </div>
+      <Dialog :header="item.title" v-model:visible="displayDialogs[item.name]">
+        <div>{{ item.description }}</div>
+      </Dialog>
+      <Dropdown
+        v-model="statDice[item.name]"
+        :inputId="item.name"
+        :options="diceAvailable"
+        optionLabel="name"
+        optionValue="value"
+        placeholder="Select a Dice"
+      />
+      <InputNumber
+        v-if="statDice[item.name]"
+        inputId="horizontal"
+        v-model="statBonus[item.name]"
+        showButtons
+        buttonLayout="horizontal"
+        decrementButtonClass="p-button-danger"
+        incrementButtonClass="p-button-success"
+        incrementButtonIcon="pi pi-plus"
+        decrementButtonIcon="pi pi-minus"
+        mode="decimal"
+      />
+      <div v-if="statDice[item.name]">
+        <DiceRoller :notation="getNotation(item.name)" :statName="item.title" />
+      </div>
+    </div>
+  </Fieldset>
 </template>
