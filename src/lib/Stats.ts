@@ -10,7 +10,7 @@ export enum CharacterStatLabel {
   CHARM = 'charm',
   GRIT = 'grit',
   BRAINS = 'brains',
-  BRAWN = 'brawn',
+  BRAWN = 'brawn'
 }
 
 enum CharacterStatDescription {
@@ -19,20 +19,13 @@ enum CharacterStatDescription {
   CHARM = 'This stat determines how socially adept a character is and how good they are at reading the emotions of another person or group of people. Characters with a high Charm stat will be able to talk themselves out of tough situations and into good ones with relative ease — within reason.',
   GRIT = 'This stat determines how hard it is to break a character emotionally or physically. Characters with a high Grit stat will be able to keep a level head in the worst of situations and will be able to keep their cool even when pushed hard. Finally, this stat also determines how street-smart a character is.',
   BRAINS = 'This stat determines how book-smart a character is. This will determine how well they understand problems, how well they did or are doing in school, and how quickly they’re able to solve academic problems.',
-  BRAWN = 'This stat determines how much brute strength a character has. It does not determine how well they can fight — just how well they can lift things and how much physical damage they can take. It also determines how physically intimidating a character is.',
+  BRAWN = 'This stat determines how much brute strength a character has. It does not determine how well they can fight — just how well they can lift things and how much physical damage they can take. It also determines how physically intimidating a character is.'
 }
 
-export enum Die {
-  D4 = 'd4',
-  D6 = 'd6',
-  D8 = 'd8',
-  D10 = 'd10',
-  D12 = 'd12',
-  D20 = 'd20'
-}
+export type Die = 'd4' | 'd6' | 'd8' | 'd10' | 'd12' | 'd20'
 
 export class CharacterStat {
-  private name: CharacterStatLabel
+  public name: CharacterStatLabel
   public die: Die | null = null
 
   constructor(name: CharacterStatLabel) {
@@ -48,7 +41,7 @@ export class CharacterStat {
   }
 
   getLabel(): string | undefined {
-    return this.name?.charAt(0).toLocaleUpperCase() + this.name?.slice(1);
+    return this.name?.charAt(0).toLocaleUpperCase() + this.name?.slice(1)
   }
 
   getDescription(): string | undefined {
