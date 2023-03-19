@@ -7,9 +7,9 @@ describe('Character construction requires a type', () => {
       type: 'kid',
     })
 
-    console.log(character.getBonuses())
     expect(character.type).toMatch('kid')
     expect(character.name).toBeUndefined()
+    expect(character.getBonuses()).toEqual({ flight: 1, charm: 1 })
   })
 });
 
