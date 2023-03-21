@@ -13,6 +13,16 @@ const options = [
 </script>
 
 <template>
-  <Dropdown v-model="characterType" :options="options" optionLabel="label" optionValue="value"
-    placeholder="Select a Character Type" @change="store.changeCharacterType" />
+  <div class="card">
+    <div class="flex card-container">
+      <Dropdown
+        v-model="characterType"
+        :options="options"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Select a Character Type"
+        @change="store.changeCharacterType"
+      />
+    </div>
+  </div>
 </template>
