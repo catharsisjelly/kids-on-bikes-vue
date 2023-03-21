@@ -7,7 +7,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
 
   const inventory = ref([])
   const notes = ref()
-  let character = ref(null);
+  let character = ref(null)
   let characterType = ref(null)
 
   const changeCharacterType = (event: any) => {
@@ -22,11 +22,11 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
   }
 
   const inventoryAddItem = (event: any) => {
-    console.log('inventory', event);
+    console.log('inventory', event)
 
-    const target = event.target ?? null
-    if (target !== null) {
-      inventory.value.push(target?.value)
+    const content = event.value ?? null
+    if (content !== null) {
+      inventory.value.push(content)
     }
   }
 
