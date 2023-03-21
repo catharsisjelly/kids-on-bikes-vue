@@ -3,7 +3,6 @@ import { mount } from '@vue/test-utils'
 import PlayerType from './PlayerType.vue'
 import { createTestingPinia } from '@pinia/testing'
 import PrimeVue from 'primevue/config'
-import { log } from 'console'
 
 document.body.innerHTML = `
   <div>
@@ -42,7 +41,7 @@ describe('Display and set one of the three Character types', () => {
         })
 
         await wrapper.get('.p-dropdown').trigger('click')
-        let dropdownItems = document.body.getElementsByClassName('p-dropdown-item')
+        const dropdownItems = document.body.getElementsByClassName('p-dropdown-item')
         expect(dropdownItems.length).toEqual(3)
         expect(document.body.innerHTML).toContain('Kid')
         expect(document.body.innerHTML).toContain('Teen')
