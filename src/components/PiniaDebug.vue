@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import { useCharacterSheet } from '@/stores/characterSheet';
-import { storeToRefs } from 'pinia'
-
 const characterSheetStore = useCharacterSheet();
 </script>
 
 <template>
-    <div class="card">
-        <div class="flex card-container">
+    <div class="grid">
+        <div class="col-12">
             <h2>Pinia Debug</h2>
         </div>
-        <div class="flex card-container">
+        <div class="col-12">
             <dl>
                 <dt>CharacterSheet Store</dt>
                 <dd>

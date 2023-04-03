@@ -2,7 +2,10 @@ export interface Strength {
   label: string
   name: string
   description: string
+  value: boolean
 }
+
+export type CharacterType = 'kid' | 'teen' | 'adult';
 
 export enum CharacterStatLabel {
   FIGHT = 'fight',

@@ -1,6 +1,5 @@
 import type { CharacterStat, Strength } from './Stats'
 
-export type CharacterType = 'kid' | 'teen' | 'adult'
 
 type CharacterConstructor = {
   type: CharacterType
@@ -14,7 +13,7 @@ type CharacterConstructor = {
 export class Character {
   public type: string
   private stats: any = {}
-  private bonuses: any = {}
+  public bonuses: any = {}
   public strengths: any = {}
   public name?: string = ''
   private age?: number | undefined
@@ -59,7 +58,7 @@ export class Character {
     return this.bonuses;
   }
 
-  setAge(age: number): void | never {
+  public setAge(age: number): void | never {
     switch (this.type) {
       case 'kid':
         if (age < 7 || age > 12) {
@@ -80,7 +79,7 @@ export class Character {
     }
   }
 
-  getAge(): number | undefined {
+  public getAge(): number | undefined {
     return this.age
   }
 

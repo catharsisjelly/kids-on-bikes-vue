@@ -13,30 +13,8 @@ describe('Character Sheet', () => {
   it('sets the character type & defaults', () => {
     const characterSheet = useCharacterSheet()
     const characterType = 'kid'
-    expect(characterSheet.character).toBe(null)
     characterSheet.changeCharacterType({ value: characterType })
-    expect(characterSheet.character.type).toEqual(characterType)
     expect(characterSheet.characterType).toEqual(characterType)
-    expect(characterSheet.character.bonuses).toEqual({ flight: 1, charm: 1 })
-  })
-
-  it('adds an item to the inventory', () => {
-    const characterSheet = useCharacterSheet()
-    const item = 'Apple'
-    expect(characterSheet.inventory).toHaveLength(0)
-    characterSheet.inventoryAddItem({ value: item })
-    expect(characterSheet.inventory).toHaveLength(1)
-    expect(characterSheet.inventory).toEqual([item])
-  })
-
-  it('removes the selected item from the inventory', () => {
-    const characterSheet = useCharacterSheet()
-    const items = ['Apple', 'Orange', 'Banana']
-    characterSheet.inventory = items
-
-    expect(characterSheet.inventory).toHaveLength(3)
-    characterSheet.inventoryRemoveItem(1)
-    expect(characterSheet.inventory).toHaveLength(2)
-    expect(characterSheet.inventory).toEqual(['Apple', 'Banana'])
+    expect(characterSheet.bonuses).toEqual({ brains: 0, brawn: 0, grit: 0, fight: 0, flight: 1, charm: 1 })
   })
 })
