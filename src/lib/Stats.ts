@@ -5,16 +5,11 @@ export interface Strength {
   value: boolean
 }
 
+export const statLabels: string[] = ['fight', 'flight', 'charm', 'grit', 'brains', 'brawn'];
+
 export type CharacterType = 'kid' | 'teen' | 'adult';
 
-export enum CharacterStatLabel {
-  FIGHT = 'fight',
-  FLIGHT = 'flight',
-  CHARM = 'charm',
-  GRIT = 'grit',
-  BRAINS = 'brains',
-  BRAWN = 'brawn'
-}
+export type CharacterStatLabel = typeof statLabels[number]
 
 enum CharacterStatDescription {
   FIGHT = 'This stat determines how good a combatant a character is with whatever weapons or fighting skills you decide your character knows. While a character with a high Fight stat won’t be able to pick up a gun and use it effectively if they have never fired one before, this stat will make them good with weapons that they do have experience with. Also, they&apos;ll be able to learn how to use new weapons and fighting skills more easily, if given proper training.',
@@ -49,17 +44,17 @@ export class CharacterStat {
 
   getDescription(): string | undefined {
     switch (this.name) {
-      case CharacterStatLabel.FIGHT:
+      case 'fight':
         return CharacterStatDescription.FIGHT
-      case CharacterStatLabel.FLIGHT:
+      case 'flight':
         return CharacterStatDescription.FLIGHT
-      case CharacterStatLabel.BRAINS:
+      case 'brains':
         return CharacterStatDescription.BRAINS
-      case CharacterStatLabel.BRAWN:
+      case 'brawn':
         return CharacterStatDescription.BRAWN
-      case CharacterStatLabel.CHARM:
+      case 'charm':
         return CharacterStatDescription.CHARM
-      case CharacterStatLabel.GRIT:
+      case 'grit':
         return CharacterStatDescription.GRIT
     }
   }

@@ -2,7 +2,7 @@
 import PlayerType from './PlayerType.vue'
 import PlayerDetails from './PlayerDetails.vue'
 // import PlayerStrengths from './PlayerStrengths.vue'
-// import PlayerStats from './PlayerStats.vue'
+import PlayerStats from './PlayerStats.vue'
 // import DiceResults from '../DiceResults.vue'
 import PlayerInventory from './PlayerInventory.vue'
 import { useCharacterSheet } from '@/stores/characterSheet'
@@ -18,7 +18,7 @@ const { characterType } = storeToRefs(store)
   <PlayerType />
   <div v-if="characterType">
     <PlayerDetails />
-    <!-- <PlayerStats /> -->
+    <PlayerStats />
     <!-- <PlayerStrengths /> -->
     <PlayerInventory />
     <!-- <AdversityTokens /> -->

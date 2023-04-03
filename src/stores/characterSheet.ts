@@ -1,12 +1,12 @@
 import { ref, type Ref } from 'vue'
 import { defineStore } from 'pinia'
-import type { CharacterStat, CharacterStatLabel, CharacterType } from '@/lib/Stats'
+import { CharacterStat, type CharacterStatLabel, type CharacterType } from '@/lib/Stats'
 
 export const useCharacterSheet = defineStore('characterSheet', () => {
   const notes: Ref<string> = ref('')
   const characterType: Ref<CharacterType | null> = ref(null)
   const name: Ref<string> = ref('')
-  const bonuses = ref({
+  const statBonuses: Ref<Record<CharacterStatLabel, number>> = ref({
     flight: 0,
     fight: 0,
     charm: 0,
@@ -20,9 +20,16 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
   const ageError: Ref<string | undefined> = ref()
   const motivation: Ref<string> = ref('')
   const description: Ref<string> = ref('')
-  const stats: Ref<Record<CharacterStatLabel, CharacterStat> | undefined> = ref()
-  const fears: Ref<string[]> = ref([])
-  const flaws: Ref<string[]> = ref([])
+  const stats: Ref<Record<CharacterStatLabel, CharacterStat>> = ref({
+    flight: new CharacterStat('flight'),
+    fight: new CharacterStat('fight'),
+    charm: new CharacterStat('charm'),
+    brawn: new CharacterStat('brawn'),
+    brains: new CharacterStat('brains'),
+    grit: new CharacterStat('grit'),
+  })
+  const fears: Ref<string> = ref('')
+  const flaws: Ref<string> = ref('')
   const strengths: Ref<string[]> = ref([])
 
   const changeCharacterType = (event: any) => {
@@ -30,25 +37,29 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     setDefaults()
   }
 
+  const setStatValue = (event: any) => {
+    console.log(event)
+  }
+
   const setDefaults = () => {
     switch (characterType.value) {
       case 'kid':
-        bonuses.value.flight = 1
-        bonuses.value.charm = 1
+        statBonuses.value.flight = 1
+        statBonuses.value.charm = 1
         // strengths: ['Quick Healing'],
         ageMin.value = 7
         ageMax.value = 12
         break;
       case 'teen':
-        bonuses.value.fight = 1
-        bonuses.value.brawn = 1
+        statBonuses.value.fight = 1
+        statBonuses.value.brawn = 1
         // strengths: ['Rebellious'],
         ageMin.value = 13
         ageMax.value = 19
         break;
       case 'adult':
-        bonuses.value.brains = 1
-        bonuses.value.grit = 1
+        statBonuses.value.brains = 1
+        statBonuses.value.grit = 1
         // strengths: ['Skilled at'],
         ageMin.value = 20
         ageMax.value = undefined
@@ -73,9 +84,11 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     description,
     motivation,
     characterType,
+    stats,
     flaws,
     fears,
-    bonuses,
+    statBonuses,
     changeCharacterType,
+    setStatValue
   }
 })
