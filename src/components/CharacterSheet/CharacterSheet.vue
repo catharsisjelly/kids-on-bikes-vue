@@ -1,21 +1,21 @@
 <script setup lang="ts">
-// import PlayerType from './PlayerType.vue'
+import PlayerType from './PlayerType.vue'
 // import PlayerDetails from './PlayerDetails.vue'
 // import PlayerStrengths from './PlayerStrengths.vue'
-import PlayerStats from './PlayerStats.vue'
-import DiceResults from '../DiceResults.vue'
+// import PlayerStats from './PlayerStats.vue'
+// import DiceResults from '../DiceResults.vue'
 // import PlayerInventory from './PlayerInventory.vue'
 // import AdversityTokens from './AdversityTokens.vue'
 // import PlayerNotes from './PlayerNotes.vue'
 </script>
 
 <template>
-  <!-- <PlayerType /> -->
+  <PlayerType />
   <!-- <PlayerDetails /> -->
-  <PlayerStats />
+  <!-- <PlayerStats /> -->
   <!-- <PlayerStrengths /> -->
   <!-- <PlayerInventory /> -->
   <!-- <AdversityTokens /> -->
   <!-- <PlayerNotes /> -->
-  <DiceResults />
+  <!-- <DiceResults /> -->
 </template>

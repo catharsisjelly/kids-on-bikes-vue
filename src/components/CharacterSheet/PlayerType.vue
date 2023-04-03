@@ -4,8 +4,7 @@ import { useCharacterSheet } from '@/stores/characterSheet'
 import { storeToRefs } from 'pinia'
 
 const store = useCharacterSheet()
-const { changeCharacterType } = store
-const { chosenCharacterType } = storeToRefs(store)
+const { characterType } = storeToRefs(store)
 const options = [
   { value: 'kid', label: 'Kid' },
   { value: 'teen', label: 'Teen' },
@@ -14,12 +13,16 @@ const options = [
 </script>
 
 <template>
-  <Dropdown
-    v-model="chosenCharacterType"
-    :options="options"
-    optionLabel="label"
-    optionValue="value"
-    placeholder="Select a Character Type"
-    @change="changeCharacterType"
-  />
+  <div class="card">
+    <div class="flex card-container">
+      <Dropdown
+        v-model="characterType"
+        :options="options"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Select a Character Type"
+        @change="store.changeCharacterType"
+      />
+    </div>
+  </div>
 </template>
