@@ -22,6 +22,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
   const description: Ref<string> = ref('')
   const stats: Ref<Record<CharacterStatLabel, CharacterStat> | undefined> = ref()
   const fears: Ref<string[]> = ref([])
+  const flaws: Ref<string[]> = ref([])
   const strengths: Ref<string[]> = ref([])
 
   const changeCharacterType = (event: any) => {
@@ -72,6 +73,8 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     description,
     motivation,
     characterType,
+    flaws,
+    fears,
     bonuses,
     changeCharacterType,
   }
