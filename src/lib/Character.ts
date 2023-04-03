@@ -65,15 +65,18 @@ export class Character {
         if (age < 7 || age > 12) {
           throw new Error('Kid age must be >= 7 or < 13')
         }
+        break
       case 'teen':
         if (age < 13 || age > 19) {
           throw new Error('Teen age must be >= 13 or < 20')
         }
+        break
       case 'adult':
         if (age < 20) {
           throw new Error('Adult age must be >= 20')
         }
         this.age = age
+        break
     }
   }
 
