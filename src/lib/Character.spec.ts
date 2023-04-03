@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { Character } from './Character'
 
 describe('Character construction requires a type', () => {
@@ -13,39 +13,39 @@ describe('Character construction requires a type', () => {
   })
 });
 
-// describe('Character age is restricted by type', () => {
-//   it('Restricts the age of a kid >= 7 or < 12', () => {
-//     const character = new Character({
-//       type: 'kid'
-//     })
+describe('Character age is restricted by type', () => {
+  it('Restricts the age of a kid >= 7 or < 12', () => {
+    const character = new Character({
+      type: 'kid'
+    })
 
-//     expect(() => { character.setAge(6) }).toThrowError(/Kid/)
-//     expect(() => { character.setAge(13) }).toThrowError(/Kid/)
-//   })
+    expect(() => { character.setAge(6) }).toThrowError(/Kid/)
+    expect(() => { character.setAge(13) }).toThrowError(/Kid/)
+  })
 
-//   it('Restricts the age of a teen >= 13 or < 20', () => {
-//     const character = new Character({
-//       type: 'teen'
-//     })
+  it('Restricts the age of a teen >= 13 or < 20', () => {
+    const character = new Character({
+      type: 'teen'
+    })
 
-//     expect(() => { character.setAge(12) }).toThrowError(/Teen/)
-//     expect(() => { character.setAge(20) }).toThrowError(/Teen/)
-//   })
+    expect(() => { character.setAge(12) }).toThrowError(/Teen/)
+    expect(() => { character.setAge(20) }).toThrowError(/Teen/)
+  })
 
-//   it('Restricts the age of a teen >= 13 or < 20', () => {
-//     const character = new Character({
-//       type: 'adult'
-//     })
+  it('Restricts the age of a teen >= 13 or < 20', () => {
+    const character = new Character({
+      type: 'adult'
+    })
 
-//     expect(() => { character.setAge(19) }).toThrowError(/Adult/)
-//   })
+    expect(() => { character.setAge(19) }).toThrowError(/Adult/)
+  })
 
-//   it('Restricts the age of a teen >= 13 or < 20', () => {
-//     const character = new Character({
-//       type: 'adult'
-//     })
+  it('Restricts the age of a teen >= 13 or < 20', () => {
+    const character = new Character({
+      type: 'adult'
+    })
 
-//     character.setAge(20)
-//     expect(character.getAge()).toEqual(20)
-//   })
-// })
+    character.setAge(20)
+    expect(character.getAge()).toEqual(20)
+  })
+})
