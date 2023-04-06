@@ -72,7 +72,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     }
     if (
       (ageMin.value !== undefined) &&
-      (age.value < ageMin.value || age.value > ageMax.value)
+      (age.value < ageMin.value)
     ) {
       age.value = ageMin.value
     }
