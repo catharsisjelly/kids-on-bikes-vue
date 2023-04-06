@@ -71,7 +71,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
   }
 
   const setBonuses = (stats: CharacterStatLabel[], bonus: number) => {
-    for (const stat in stats) {
+    for (const stat of stats) {
       statBonuses.value[stat] = bonus
     }
   }
