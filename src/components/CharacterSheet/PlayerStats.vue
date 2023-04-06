@@ -13,12 +13,12 @@ const store = useCharacterSheet()
 const { stats, statBonuses } = storeToRefs(store)
 
 const diceAvailable = [
-  { value: 'd4', name: 'd4' },
-  { value: 'd6', name: 'd6' },
-  { value: 'd8', name: 'd8' },
-  { value: 'd10', name: 'd10' },
-  { value: 'd12', name: 'd12' },
-  { value: 'd20', name: 'd20' },
+  { value: 'd4', name: 'D4' },
+  { value: 'd6', name: 'D6' },
+  { value: 'd8', name: 'D8' },
+  { value: 'd10', name: 'D10' },
+  { value: 'd12', name: 'D12' },
+  { value: 'd20', name: 'D20' },
 ]
 
 const displayDialogs: Ref<Record<CharacterStatLabel, boolean>> = ref({
@@ -53,7 +53,8 @@ const getNotation = (item: string) => {
           <label :for="stats[key].getLabel()">{{ stats[key].getLabel() }} Dice Selection</label>
           <i class="pi pi-info-circle" @click="openDialog(key)"></i>
           <Dropdown :id="key" :inputId="key" :options="diceAvailable" optionLabel="name" optionValue="value"
-            placeholder="Select a Dice" @change="store.setStatValue" :model-value="stats[key].getDie()" />
+            placeholder="Select a Dice" @change="store.setStatDiceValue($event, key)" :model-value="stats[key].getDie()"
+            :show-clear="true" />
         </div>
         <div class="col">
           <label :for="key + '_bonus'">{{ stats[key].getLabel() }} Bonus</label>

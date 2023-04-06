@@ -37,34 +37,29 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     setDefaults()
   }
 
-  const setStatValue = (event: any) => {
-    console.log(event.originalEvent.target.id)
-    const statClicked = event.originalEvent.target.id
-    const underscoreIndex = statClicked.indexOf('_')
-    const statToChange: CharacterStatLabel = statClicked.substring(0, underscoreIndex)
-
-    stats.value[statToChange].setDie(event.value)
+  const setStatDiceValue = (event: any, statClicked: CharacterStatLabel) => {
+    stats.value[statClicked].setDie(event.value)
   }
 
   const setDefaults = () => {
     switch (characterType.value) {
       case 'kid':
-        statBonuses.value.flight = 1
-        statBonuses.value.charm = 1
+        setBonuses(['flight', 'charm'], 1)
+        setBonuses(['fight', 'brawn', 'brains', 'grit'], 0)
         // strengths: ['Quick Healing'],
         ageMin.value = 7
         ageMax.value = 12
         break;
       case 'teen':
-        statBonuses.value.fight = 1
-        statBonuses.value.brawn = 1
+        setBonuses(['fight', 'brawn'], 1)
+        setBonuses(['flight', 'charm', 'brains', 'grit'], 0)
         // strengths: ['Rebellious'],
         ageMin.value = 13
         ageMax.value = 19
         break;
       case 'adult':
-        statBonuses.value.brains = 1
-        statBonuses.value.grit = 1
+        setBonuses(['brains', 'grit'], 1)
+        setBonuses(['flight', 'fight', 'charm', 'brawn'], 0)
         // strengths: ['Skilled at'],
         ageMin.value = 20
         ageMax.value = undefined
@@ -76,7 +71,12 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     ) {
       age.value = ageMin.value
     }
+  }
 
+  const setBonuses = (stats: CharacterStatLabel[], bonus: number) => {
+    for (const stat in stats) {
+      statBonuses.value[stat] = bonus
+    }
   }
 
   return {
@@ -95,6 +95,6 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     fears,
     statBonuses,
     changeCharacterType,
-    setStatValue
+    setStatDiceValue
   }
 })
