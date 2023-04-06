@@ -15,6 +15,6 @@ describe('Character Sheet', () => {
     const characterType = 'kid'
     characterSheet.changeCharacterType({ value: characterType })
     expect(characterSheet.characterType).toEqual(characterType)
-    expect(characterSheet.bonuses).toEqual({ brains: 0, brawn: 0, grit: 0, fight: 0, flight: 1, charm: 1 })
+    expect(characterSheet.statBonuses).toEqual({ brains: 0, brawn: 0, grit: 0, fight: 0, flight: 1, charm: 1 })
   })
 })
