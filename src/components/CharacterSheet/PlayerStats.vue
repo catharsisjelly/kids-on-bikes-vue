@@ -18,7 +18,7 @@ const diceAvailable = [
   { value: 'd8', name: 'D8' },
   { value: 'd10', name: 'D10' },
   { value: 'd12', name: 'D12' },
-  { value: 'd20', name: 'D20' },
+  { value: 'd20', name: 'D20' }
 ]
 
 const displayDialogs: Ref<Record<CharacterStatLabel, boolean>> = ref({
@@ -52,15 +52,31 @@ const getNotation = (item: string) => {
         <div class="col">
           <label :for="stats[key].getLabel()">{{ stats[key].getLabel() }} Dice Selection</label>
           <i class="pi pi-info-circle" @click="openDialog(key)"></i>
-          <Dropdown :id="key" :inputId="key" :options="diceAvailable" optionLabel="name" optionValue="value"
-            placeholder="Select a Dice" @change="store.setStatDiceValue($event, key)" :model-value="stats[key].getDie()"
-            :show-clear="true" />
+          <Dropdown
+            :id="key"
+            :inputId="key"
+            :options="diceAvailable"
+            optionLabel="name"
+            optionValue="value"
+            placeholder="Select a Dice"
+            @change="store.setStatDiceValue($event, key)"
+            :model-value="stats[key].getDie()"
+            :show-clear="true"
+          />
         </div>
         <div class="col">
           <label :for="key + '_bonus'">{{ stats[key].getLabel() }} Bonus</label>
-          <InputNumber inputId="horizontal" v-model="statBonuses[key]" showButtons buttonLayout="horizontal"
-            decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"
-            incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="decimal" />
+          <InputNumber
+            inputId="horizontal"
+            v-model="statBonuses[key]"
+            showButtons
+            buttonLayout="horizontal"
+            decrementButtonClass="p-button-danger"
+            incrementButtonClass="p-button-success"
+            incrementButtonIcon="pi pi-plus"
+            decrementButtonIcon="pi pi-minus"
+            mode="decimal"
+          />
         </div>
         <Dialog :header="stats[key].getLabel()" v-model:visible="displayDialogs[key]">
           <div>{{ stats[key].getDescription() }}</div>

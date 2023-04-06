@@ -12,7 +12,4 @@ import 'primeflex/primeflex.css'
 import './assets/main.css'
 
 const app = createApp(App)
-app.use(PrimeVue)
-    .use(createPinia())
-    .use(router)
-    .mount('#app')
+app.use(PrimeVue).use(createPinia()).use(router).mount('#app')

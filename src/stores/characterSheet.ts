@@ -12,7 +12,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     charm: 0,
     brawn: 0,
     brains: 0,
-    grit: 0,
+    grit: 0
   })
   const age: Ref<number> = ref(0)
   const ageMin: Ref<number | undefined> = ref()
@@ -26,7 +26,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     charm: new CharacterStat('charm'),
     brawn: new CharacterStat('brawn'),
     brains: new CharacterStat('brains'),
-    grit: new CharacterStat('grit'),
+    grit: new CharacterStat('grit')
   })
   const fears: Ref<string> = ref('')
   const flaws: Ref<string> = ref('')
@@ -49,26 +49,23 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
         // strengths: ['Quick Healing'],
         ageMin.value = 7
         ageMax.value = 12
-        break;
+        break
       case 'teen':
         setBonuses(['fight', 'brawn'], 1)
         setBonuses(['flight', 'charm', 'brains', 'grit'], 0)
         // strengths: ['Rebellious'],
         ageMin.value = 13
         ageMax.value = 19
-        break;
+        break
       case 'adult':
         setBonuses(['brains', 'grit'], 1)
         setBonuses(['flight', 'fight', 'charm', 'brawn'], 0)
         // strengths: ['Skilled at'],
         ageMin.value = 20
         ageMax.value = undefined
-        break;
+        break
     }
-    if (
-      (ageMin.value !== undefined) &&
-      (age.value < ageMin.value)
-    ) {
+    if (ageMin.value !== undefined && age.value < ageMin.value) {
       age.value = ageMin.value
     }
   }

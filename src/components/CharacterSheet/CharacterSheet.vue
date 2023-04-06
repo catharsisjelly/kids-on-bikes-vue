@@ -6,7 +6,7 @@ import PlayerStats from './PlayerStats.vue'
 // import DiceResults from '../DiceResults.vue'
 import PlayerInventory from './PlayerInventory.vue'
 import { useCharacterSheet } from '@/stores/characterSheet'
-import { storeToRefs } from 'pinia';
+import { storeToRefs } from 'pinia'
 // import AdversityTokens from './AdversityTokens.vue'
 // import PlayerNotes from './PlayerNotes.vue'
 

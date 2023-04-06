@@ -3,7 +3,7 @@ import Fieldset from 'primevue/fieldset'
 import StrengthCheckbox from './StrengthCheckbox.vue'
 import { ref } from 'vue'
 import { useCharacterSheet } from '@/stores/characterSheet'
-import { storeToRefs } from 'pinia';
+import { storeToRefs } from 'pinia'
 
 const store = useCharacterSheet()
 const strengthsAvailable = ref({})

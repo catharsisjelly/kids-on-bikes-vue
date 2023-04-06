@@ -8,20 +8,26 @@ import { storeToRefs } from 'pinia'
 
 const store = useCharacterSheet()
 const { name, age, ageMin, ageMax, motivation, description, fears, flaws } = storeToRefs(store)
-
 </script>
 
 <template>
   <div class="card">
-  <div class="card-container">
+    <div class="card-container">
       <Fieldset legend="Character Details">
         <div>
           <label for="name" class="col-fixed">Name</label>
           <InputText id="name" type="text" v-model="name" />
         </div>
-      <div>
-        <label for="age">Age</label>
-        <InputNumber id="age" mode="decimal" showButtons v-model="age" :min="ageMin" :max="ageMax" />
+        <div>
+          <label for="age">Age</label>
+          <InputNumber
+            id="age"
+            mode="decimal"
+            showButtons
+            v-model="age"
+            :min="ageMin"
+            :max="ageMax"
+          />
         </div>
         <!-- <div>
             <label for="fear">Fears</label>

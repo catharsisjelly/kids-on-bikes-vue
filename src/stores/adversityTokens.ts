@@ -5,6 +5,6 @@ export const useAdversityTokens = defineStore('adversityTokens', () => {
   const adversityTokens = ref(0)
 
   return {
-    adversityTokens,
+    adversityTokens
   }
 })
