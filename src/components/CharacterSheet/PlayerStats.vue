@@ -53,6 +53,8 @@ const getNotation = (item: string) => {
         <i class="pi pi-info-circle" @click="openDialog(key)"></i>
         <Dropdown :id="key" :inputId="key" :options="diceAvailable" optionLabel="name" optionValue="value"
           placeholder="Select a Dice" @change="store.setStatValue" :model-value="stats[key].getDie()" />
+      </div>
+      <div>
         <label :for="'bonus_' + key">{{ stats[key].getLabel() }} Bonus</label>
         <InputNumber inputId="horizontal" v-model="statBonuses[key]" showButtons buttonLayout="horizontal"
           decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
