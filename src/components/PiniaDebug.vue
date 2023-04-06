@@ -17,15 +17,15 @@ const inventoryStore = useInventory()
       <dl>
         <dt>CharacterSheet Store</dt>
         <dd>
-          <pre><code class="JSON">{{ JSON.stringify(characterSheetStore) }}</code></pre>
+          <pre><code class="JSON">{{ JSON.stringify(characterSheetStore, null, 2) }}</code></pre>
         </dd>
         <dt>Adversity Tokens Store</dt>
         <dd>
-          <pre><code class="JSON">{{ JSON.stringify(adversityTokenStore) }}</code></pre>
+          <pre><code class="JSON">{{ JSON.stringify(adversityTokenStore, null, 2) }}</code></pre>
         </dd>
         <dt>Inventory Store</dt>
         <dd>
-          <pre><code class="JSON">{{ JSON.stringify(inventoryStore) }}</code></pre>
+          <pre><code class="JSON">{{ JSON.stringify(inventoryStore, null, 2) }}</code></pre>
         </dd>
       </dl>
     </div>
