@@ -38,7 +38,12 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
   }
 
   const setStatValue = (event: any) => {
-    console.log(event)
+    console.log(event.originalEvent.target.id)
+    const statClicked = event.originalEvent.target.id
+    const underscoreIndex = statClicked.indexOf('_')
+    const statToChange: CharacterStatLabel = statClicked.substring(0, underscoreIndex)
+
+    stats.value[statToChange].setDie(event.value)
   }
 
   const setDefaults = () => {
