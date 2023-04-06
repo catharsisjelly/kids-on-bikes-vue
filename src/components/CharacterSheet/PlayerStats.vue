@@ -46,16 +46,16 @@ const getNotation = (item: string) => {
 </script>
 
 <template>
-  <div class="card">
+  <div class="grid">
     <Fieldset legend="Stats">
       <div v-for="key in statLabels" :key="key">
-        <div class="card-container">
+        <div class="col">
           <label :for="stats[key].getLabel()">{{ stats[key].getLabel() }} Dice Selection</label>
           <i class="pi pi-info-circle" @click="openDialog(key)"></i>
           <Dropdown :id="key" :inputId="key" :options="diceAvailable" optionLabel="name" optionValue="value"
             placeholder="Select a Dice" @change="store.setStatValue" :model-value="stats[key].getDie()" />
         </div>
-        <div class="card-container">
+        <div class="col">
           <label :for="key + '_bonus'">{{ stats[key].getLabel() }} Bonus</label>
           <InputNumber inputId="horizontal" v-model="statBonuses[key]" showButtons buttonLayout="horizontal"
             decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"
