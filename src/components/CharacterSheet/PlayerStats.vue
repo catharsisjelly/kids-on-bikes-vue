@@ -62,7 +62,7 @@ const getNotation = (item: string) => {
         <div>{{ stats[key].getDescription() }}</div>
       </Dialog>
       <div v-if="stats[key].getDie()">
-        <DiceRoller :notation="getNotation(key)" :statName="stats[key].getLabel()" />
+        <DiceRoller :notation="getNotation(key)" :statName="key" />
       </div>
     </div>
   </Fieldset>
