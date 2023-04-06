@@ -90,6 +90,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     motivation,
     characterType,
     stats,
+    strengths,
     flaws,
     fears,
     statBonuses,

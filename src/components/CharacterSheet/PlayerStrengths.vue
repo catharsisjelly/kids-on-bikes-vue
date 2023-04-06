@@ -6,8 +6,6 @@ import { useCharacterSheet } from '@/stores/characterSheet'
 import { storeToRefs } from 'pinia';
 
 const store = useCharacterSheet()
-const { character } = storeToRefs(store)
-
 const strengthsAvailable = ref({})
 </script>
 
@@ -15,12 +13,12 @@ const strengthsAvailable = ref({})
   <div>
     <div>
       <Fieldset legend="Strengths">
-        <div class="field-checkbox" v-for="(strength, index) in character?.strengths" :key="index">
-          <StrengthCheckbox :description="strength.description" :input-name="strength.label" :label="strength.label" />
+        <div class="field-checkbox" v-for="(strength, index) in store.strengths" :key="index">
+          <!-- <StrengthCheckbox :description="strength.description" :input-name="strength.label" :label="strength.label" /> -->
           <!-- <label  :for="'skill' + index">{{ strength.label }}</label>
-                  <Checkbox v-model="strengths" :name="'skill' + index" :value="strength.label" />
-                  <InputText v-if="strength.label === 'Skilled at'" />
-                  <div style="display: none">{{ strength.description }}</div> -->
+                      <Checkbox v-model="strengths" :name="'skill' + index" :value="strength.label" />
+                      <InputText v-if="strength.label === 'Skilled at'" />
+                      <div style="display: none">{{ strength.description }}</div> -->
         </div>
       </Fieldset>
     </div>
