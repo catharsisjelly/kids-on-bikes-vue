@@ -46,26 +46,28 @@ const getNotation = (item: string) => {
 </script>
 
 <template>
-  <Fieldset legend="Stats">
-    <div v-for="key in statLabels" :key="key">
-      <div>
-        <label :for="stats[key].getLabel()">{{ stats[key].getLabel() }} Dice Selection</label>
-        <i class="pi pi-info-circle" @click="openDialog(key)"></i>
-        <Dropdown :id="key" :inputId="key" :options="diceAvailable" optionLabel="name" optionValue="value"
-          placeholder="Select a Dice" @change="store.setStatValue" :model-value="stats[key].getDie()" />
+  <div class="card">
+    <Fieldset legend="Stats">
+      <div v-for="key in statLabels" :key="key">
+        <div class="card-container">
+          <label :for="stats[key].getLabel()">{{ stats[key].getLabel() }} Dice Selection</label>
+          <i class="pi pi-info-circle" @click="openDialog(key)"></i>
+          <Dropdown :id="key" :inputId="key" :options="diceAvailable" optionLabel="name" optionValue="value"
+            placeholder="Select a Dice" @change="store.setStatValue" :model-value="stats[key].getDie()" />
+        </div>
+        <div class="card-container">
+          <label :for="key + '_bonus'">{{ stats[key].getLabel() }} Bonus</label>
+          <InputNumber inputId="horizontal" v-model="statBonuses[key]" showButtons buttonLayout="horizontal"
+            decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"
+            incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="decimal" />
+        </div>
+        <Dialog :header="stats[key].getLabel()" v-model:visible="displayDialogs[key]">
+          <div>{{ stats[key].getDescription() }}</div>
+        </Dialog>
+        <div v-if="stats[key].getDie()">
+          <DiceRoller :notation="getNotation(key)" :statName="key" />
+        </div>
       </div>
-      <div>
-        <label :for="'bonus_' + key">{{ stats[key].getLabel() }} Bonus</label>
-        <InputNumber inputId="horizontal" v-model="statBonuses[key]" showButtons buttonLayout="horizontal"
-          decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
-          decrementButtonIcon="pi pi-minus" mode="decimal" />
-      </div>
-      <Dialog :header="stats[key].getLabel()" v-model:visible="displayDialogs[key]">
-        <div>{{ stats[key].getDescription() }}</div>
-      </Dialog>
-      <div v-if="stats[key].getDie()">
-        <DiceRoller :notation="getNotation(key)" :statName="key" />
-      </div>
-    </div>
-  </Fieldset>
+    </Fieldset>
+  </div>
 </template>
