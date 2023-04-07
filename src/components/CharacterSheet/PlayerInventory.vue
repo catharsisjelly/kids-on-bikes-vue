@@ -7,7 +7,6 @@ import { useInventory } from '@/stores/inventory'
 
 const store = useInventory()
 const { inventory } = storeToRefs(store)
-
 </script>
 
 <template>
