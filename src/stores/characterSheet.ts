@@ -46,22 +46,22 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
       case 'kid':
         setBonuses(['flight', 'charm'], 1)
         setBonuses(['fight', 'brawn', 'brains', 'grit'], 0)
-        // strengths: ['Quick Healing'],
+        strengths.value = ['quick-healing']
         ageMin.value = 7
         ageMax.value = 12
         break
       case 'teen':
         setBonuses(['fight', 'brawn'], 1)
         setBonuses(['flight', 'charm', 'brains', 'grit'], 0)
-        // strengths: ['Rebellious'],
+        strengths.value = ['rebellious']
         ageMin.value = 13
         ageMax.value = 19
         break
       case 'adult':
         setBonuses(['brains', 'grit'], 1)
         setBonuses(['flight', 'fight', 'charm', 'brawn'], 0)
-        // strengths: ['Skilled at'],
-        ageMin.value = 20
+        strengths.value = ['skilled-at'],
+          ageMin.value = 20
         ageMax.value = undefined
         break
     }
