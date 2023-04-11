@@ -41,13 +41,13 @@
   },
   "skilled-at": {
     "label": "Skilled at",
-    "description": "Choose a skill(GM&apos;s discretion).You are assumed to succeed when making even moderately difficult checks(9 or less) involving this skill.If the GM determines that you do need to roll for a more difficult check, add up to + 3 to your roll."
+    "description": "Choose a skill(GM&apos;s discretion).You are assumed to succeed when making even moderately difficult checks(9 or less) involving this skill.If the GM determines that you do need to roll for a more difficult check, add up to +3 to your roll."
   },
   "tough": {
     "label": "Tough",
     "description": "If you lose a combat roll, add +3 to the negative number.You still lose the roll no matter what, but could reduce your loss to -1."
   },
-  "trasure-hunter": {
+  "treasure-hunter": {
     "label": "Treasure Hunter",
     "description": "May spend 1 Adversity Token to find a useful item in your surroundings."
   },
@@ -57,6 +57,6 @@
   },
   "wealthy": {
     "label": "Wealthy",
-    "description": "May spend money as though you were in a higher age bracket.For example, a wealthy child is considered to have the disposable income of a typical teen, and a wealthy teen is considered to have the disposable income of a typical adult.A wealthy adult is considered to not have to worry too much about money — they would certainly be able to buy anything they need, and likely able to spend their way out of a lot of situations."
+    "description": "May spend money as though you were in a higher age bracket. For example, a wealthy child is considered to have the disposable income of a typical teen, and a wealthy teen is considered to have the disposable income of a typical adult. A wealthy adult is considered to not have to worry too much about money — they would certainly be able to buy anything they need, and likely able to spend their way out of a lot of situations."
   }
 }
