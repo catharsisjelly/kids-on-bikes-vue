@@ -2,11 +2,11 @@
 import Fieldset from 'primevue/fieldset'
 import { useCharacterSheet } from '@/stores/characterSheet'
 import strengthsAvailable from '../../data/strengths.json'
-import { ref } from 'vue';
-import Dialog from 'primevue/dialog';
-import Checkbox from 'primevue/checkbox';
-import InputText from 'primevue/inputtext';
-import { storeToRefs } from 'pinia';
+import { ref } from 'vue'
+import Dialog from 'primevue/dialog'
+import Checkbox from 'primevue/checkbox'
+import InputText from 'primevue/inputtext'
+import { storeToRefs } from 'pinia'
 
 const store = useCharacterSheet()
 const { strengths } = storeToRefs(store)
@@ -24,10 +24,15 @@ const openDialog = () => {
       <Fieldset legend="Strengths">
         <div v-for="(strength, index) in strengthsAvailable" :key="index">
           <label :for="'strength-' + index">{{ strength.label }}</label>
-          <Checkbox v-model="strengths" :value="index" name="strength" :inputId="'strength-' + index" />
+          <Checkbox
+            v-model="strengths"
+            :value="index"
+            name="strength"
+            :inputId="'strength-' + index"
+          />
           <div v-if="strengths.includes('skilled-at') && index === 'skilled-at'">
             <label for="skilled-at-skill">Skilled At skill</label>
-            <InputText />
+            <InputText name="skilled-at-skill" />
           </div>
           <div>
             <i class="pi pi-info-circle" @click="openDialog"></i>

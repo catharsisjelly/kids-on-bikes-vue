@@ -60,8 +60,8 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
       case 'adult':
         setBonuses(['brains', 'grit'], 1)
         setBonuses(['flight', 'fight', 'charm', 'brawn'], 0)
-        strengths.value = ['skilled-at'],
-          ageMin.value = 20
+        strengths.value = ['skilled-at']
+        ageMin.value = 20
         ageMax.value = undefined
         break
     }
