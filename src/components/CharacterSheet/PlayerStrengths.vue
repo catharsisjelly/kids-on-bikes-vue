@@ -47,7 +47,12 @@ const openDialog = (item: string) => {
       <Fieldset legend="Strengths">
         <div v-for="(strength, index) in strengthsAvailable" :key="index">
           <label :for="'strength-' + index">{{ strength.label }}</label>
-          <Checkbox v-model="strengths" :value="index" name="strength" :inputId="'strength-' + index" />
+          <Checkbox
+            v-model="strengths"
+            :value="index"
+            name="strength"
+            :inputId="'strength-' + index"
+          />
           <div v-if="strengths.includes('skilled-at') && index === 'skilled-at'">
             <label for="skilled-at-skill">Skilled At skill</label>
             <InputText name="skilled-at-skill" />
@@ -55,7 +60,7 @@ const openDialog = (item: string) => {
           <div>
             <i class="pi pi-info-circle" @click="openDialog(index)"></i>
           </div>
-          <Dialog :header="strength.label" v-model:visible="displayDialogs[index]">
+          <Dialog modal :header="strength.label" v-model:visible="displayDialogs[index]">
             <div>{{ strength.description }}</div>
           </Dialog>
         </div>
