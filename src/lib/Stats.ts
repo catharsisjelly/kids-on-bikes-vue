@@ -6,10 +6,27 @@ export interface Strength {
 }
 
 export const statLabels: string[] = ['fight', 'flight', 'charm', 'grit', 'brains', 'brawn']
+export const strengthValues: string[] = [
+  'cool-under-pressure',
+  'easygoing',
+  'gross',
+  'heroic',
+  'intuitive',
+  'loyal',
+  'prepared',
+  'protective',
+  'quick-healing',
+  'rebellious',
+  'skilled-at',
+  'tough',
+  'treasure-hunter',
+  'unassuming',
+  'wealthy'
+]
 
 export type CharacterType = 'kid' | 'teen' | 'adult'
-
 export type CharacterStatLabel = (typeof statLabels)[number]
+export type StrengthValue = (typeof strengthValues)[number]
 
 enum CharacterStatDescription {
   FIGHT = 'This stat determines how good a combatant a character is with whatever weapons or fighting skills you decide your character knows. While a character with a high Fight stat won’t be able to pick up a gun and use it effectively if they have never fired one before, this stat will make them good with weapons that they do have experience with. Also, they&apos;ll be able to learn how to use new weapons and fighting skills more easily, if given proper training.',

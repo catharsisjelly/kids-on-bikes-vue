@@ -78,7 +78,7 @@ const getNotation = (item: string) => {
             mode="decimal"
           />
         </div>
-        <Dialog :header="stats[key].getLabel()" v-model:visible="displayDialogs[key]">
+        <Dialog modal :header="stats[key].getLabel()" v-model:visible="displayDialogs[key]">
           <div>{{ stats[key].getDescription() }}</div>
         </Dialog>
         <div v-if="stats[key].getDie()">
