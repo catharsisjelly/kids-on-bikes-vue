@@ -10,7 +10,7 @@ import { storeToRefs } from 'pinia'
 import { strengthValues, type StrengthValue } from '@/lib/Stats'
 
 const store = useCharacterSheet()
-const { strengths } = storeToRefs(store)
+const { strengths, skilledAtSkill } = storeToRefs(store)
 
 const displayDialogs: Ref<Record<StrengthValue, boolean>> = ref({
   'cool-under-pressure': false,
@@ -55,7 +55,7 @@ const openDialog = (item: string) => {
           />
           <div v-if="strengths.includes('skilled-at') && index === 'skilled-at'">
             <label for="skilled-at-skill">Skilled At skill</label>
-            <InputText name="skilled-at-skill" />
+            <InputText name="skilled-at-skill" v-model="skilledAtSkill" />
           </div>
           <div>
             <i class="pi pi-info-circle" @click="openDialog(index)"></i>

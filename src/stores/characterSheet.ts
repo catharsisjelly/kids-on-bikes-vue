@@ -31,6 +31,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
   const fears: Ref<string> = ref('')
   const flaws: Ref<string> = ref('')
   const strengths: Ref<string[]> = ref([])
+  const skilledAtSkill: Ref<string> = ref('')
 
   const changeCharacterType = (event: any) => {
     characterType.value = event.value
@@ -42,6 +43,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
   }
 
   const setDefaults = () => {
+    skilledAtSkill.value = ''
     switch (characterType.value) {
       case 'kid':
         setBonuses(['flight', 'charm'], 1)
@@ -88,6 +90,7 @@ export const useCharacterSheet = defineStore('characterSheet', () => {
     characterType,
     stats,
     strengths,
+    skilledAtSkill,
     flaws,
     fears,
     statBonuses,

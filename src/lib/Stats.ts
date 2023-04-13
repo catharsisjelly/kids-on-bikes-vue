@@ -1,8 +1,6 @@
 export interface Strength {
   label: string
-  name: string
   description: string
-  value: boolean
 }
 
 export const statLabels: string[] = ['fight', 'flight', 'charm', 'grit', 'brains', 'brawn']

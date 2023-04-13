@@ -8,9 +8,9 @@ export const useInventory = defineStore('inventory', () => {
     inventory.value.splice(index, 1)
   }
 
-  const addItem = (event: any) => {
-    if (event.target.value !== null) {
-      inventory.value.push(event.target.value)
+  const addItem = (item: string) => {
+    if (item !== null) {
+      inventory.value.push(item)
     }
   }
 
