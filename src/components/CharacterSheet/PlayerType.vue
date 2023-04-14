@@ -43,7 +43,7 @@ const confirmChangeCharacterType = () => {
         <Button
           @click="confirmChangeCharacterType()"
           icon="pi pi-check"
-          label="Change Type"
+          label="Change Character Type"
         ></Button>
       </div>
     </div>
