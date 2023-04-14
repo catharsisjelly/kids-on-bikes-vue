@@ -1,6 +1,6 @@
-# kids-on-bikes-vue
+# Kids On Bikes Character keeper
 
-This template should help get you started developing with Vue 3 in Vite.
+The beginnings of a character keeper for the TTRPG [Kids On Bikes](https://www.huntersentertainment.com/kidsonbikesrpg) built in Vue 3. This project uses [PrimeVue](https://primevue.org/) and has [PrimeFlex](https://www.primefaces.org/primeflex/) installed. The owner of this repo has no idea how to use CSS libraries and has no design skills so if you can help out there that would be ace. 
 
 ## Recommended IDE Setup
 

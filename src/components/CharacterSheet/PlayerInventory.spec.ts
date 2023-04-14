@@ -20,17 +20,35 @@ describe('Display and set one of the three Character types', () => {
 
   it('adds an item to the inventory', () => {
     const testing = createTestingPinia({ createSpy: vi.fn })
+    const store = useInventory()
+
     const wrapper = mount(PlayerInventory, {
       global: {
         plugins: [testing, PrimeVue]
       }
     })
 
-    const store = useInventory()
-
     const input = wrapper.get('.p-inputtext')
     input.setValue('hello')
-    input.trigger('keyup.enter')
+
+    const button = wrapper.get("button[aria-label='Add Item']")
+    button.trigger('click')
     expect(store.addItem).toBeCalledTimes(1)
+  })
+
+  it('removes an item to the inventory', () => {
+    const testing = createTestingPinia({ createSpy: vi.fn })
+    const store = useInventory()
+    store.inventory = ['Apple']
+
+    const wrapper = mount(PlayerInventory, {
+      global: {
+        plugins: [testing, PrimeVue]
+      }
+    })
+
+    const button = wrapper.get("button[aria-label='Remove Item Apple']")
+    button.trigger('click')
+    expect(store.removeItem).toBeCalledTimes(1)
   })
 })

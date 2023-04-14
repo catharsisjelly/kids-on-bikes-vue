@@ -14,7 +14,7 @@ describe('Character Sheet', () => {
     const store = useInventory()
     const item = 'Apple'
     expect(store.inventory).toHaveLength(0)
-    store.addItem({ target: { value: item } })
+    store.addItem(item)
     expect(store.inventory).toHaveLength(1)
     expect(store.inventory).toEqual([item])
   })
