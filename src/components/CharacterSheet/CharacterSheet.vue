@@ -7,7 +7,7 @@ import PlayerStats from './PlayerStats.vue'
 import PlayerInventory from './PlayerInventory.vue'
 import { useCharacterSheet } from '@/stores/characterSheet'
 import { storeToRefs } from 'pinia'
-// import AdversityTokens from './AdversityTokens.vue'
+import AdversityTokens from './AdversityTokens.vue'
 // import PlayerNotes from './PlayerNotes.vue'
 
 const store = useCharacterSheet()
@@ -21,7 +21,7 @@ const { characterType } = storeToRefs(store)
     <PlayerStats />
     <PlayerStrengths />
     <PlayerInventory />
-    <!-- <AdversityTokens /> -->
+    <AdversityTokens />
     <!-- <PlayerNotes /> -->
     <!-- <DiceResults /> -->
   </div>

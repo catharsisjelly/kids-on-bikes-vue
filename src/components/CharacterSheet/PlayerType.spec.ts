@@ -4,7 +4,6 @@ import PlayerType from './PlayerType.vue'
 import { createTestingPinia } from '@pinia/testing'
 import PrimeVue from 'primevue/config'
 import ConfirmationService from 'primevue/confirmationservice'
-import { useCharacterSheet } from '@/stores/characterSheet'
 
 describe('Display and set one of the three Character types', () => {
   it('has a visible dropdown in the default state', async () => {
