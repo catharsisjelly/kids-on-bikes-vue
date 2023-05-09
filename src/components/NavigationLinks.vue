@@ -16,7 +16,6 @@ const logout = () => {
     }
   })
 }
-const foo = ref(window.location.origin)
 </script>
 
 <template>
