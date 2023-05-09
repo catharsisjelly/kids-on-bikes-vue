@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useAuth0 } from '@auth0/auth0-vue'
-import { ref } from 'vue'
 
 const auth0 = useAuth0()
 
