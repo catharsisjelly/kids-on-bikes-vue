@@ -32,6 +32,6 @@ const roll = () => {
 </script>
 
 <template>
-  <Button label="Roll" @click="roll()" />
+  <Button @click="roll()" aria-label="roll" icon="pi pi-check" />
   <div>{{ lastResult?.total }}</div>
 </template>

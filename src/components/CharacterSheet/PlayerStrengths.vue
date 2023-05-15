@@ -42,28 +42,19 @@ const openDialog = (item: string) => {
 </script>
 
 <template>
-  <Fieldset legend="Strengths">
-    <div class="card flex">
-      <div class="card-container">
-        <div v-for="(strength, index) in strengthsAvailable" :key="index" class="">
-          <label :for="'strength-' + index">{{ strength.label }}</label>
-          <i class="pi pi-info-circle" @click="openDialog(index)"></i>
-          <Checkbox
-            v-model="strengths"
-            :value="index"
-            name="strength"
-            :inputId="'strength-' + index"
-          />
-          <div v-if="strengths.includes('skilled-at') && index === 'skilled-at'">
-            <label for="skilled-at-skill">Skilled At skill</label>
-            <InputText name="skilled-at-skill" v-model="skilledAtSkill" />
-          </div>
-
-          <Dialog modal :header="strength.label" v-model:visible="displayDialogs[index]">
-            <div>{{ strength.description }}</div>
-          </Dialog>
-        </div>
+  <Fieldset legend="Strengths" class="card">
+    <div v-for="(strength, index) in strengthsAvailable" :key="index" class="card-container grid">
+      <Checkbox class="col-1" v-model="strengths" :value="index" name="strength" :inputId="'strength-' + index" />
+      <label :for="'strength-' + index" class="col">{{ strength.label }}</label>
+      <i class="col-1 pi pi-info-circle" @click="openDialog(index)"></i>
+      <div v-if="strengths.includes('skilled-at') && index === 'skilled-at'">
+        <label for="skilled-at-skill">Skilled At skill</label>
+        <InputText name="skilled-at-skill" v-model="skilledAtSkill" />
       </div>
+
+      <Dialog modal :header="strength.label" v-model:visible="displayDialogs[index]">
+        <div>{{ strength.description }}</div>
+      </Dialog>
     </div>
   </Fieldset>
 </template>

@@ -9,12 +9,14 @@ const log: any = computed(() => {
 </script>
 
 <template>
-  <div>
-    <div v-for="(logEntry, index) in log" :key="index">
-      <p>
-        {{ logEntry.date.toLocaleString() }} - {{ logEntry.statName }} -
-        {{ logEntry.roll }}
-      </p>
+  <div class="card">
+    <div class="card-container flex">
+      <div v-for="(logEntry, index) in log" :key="index">
+        <p>
+          {{ logEntry.date.toLocaleString() }} - {{ logEntry.statName }} -
+          {{ logEntry.roll }}
+        </p>
+      </div>
     </div>
   </div>
 </template>

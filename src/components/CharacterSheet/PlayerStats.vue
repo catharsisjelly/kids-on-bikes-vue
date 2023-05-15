@@ -46,45 +46,27 @@ const getNotation = (item: string) => {
 </script>
 
 <template>
-  <div class="grid">
-    <Fieldset legend="Stats">
-      <div v-for="key in statLabels" :key="key">
-        <div class="col">
-          <label :for="stats[key].getLabel()">{{ stats[key].getLabel() }} Dice Selection</label>
-          <i class="pi pi-info-circle" @click="openDialog(key)"></i>
-          <Dropdown
-            :id="key"
-            :inputId="key"
-            :options="diceAvailable"
-            optionLabel="name"
-            optionValue="value"
-            placeholder="Select a Dice"
-            @change="store.setStatDiceValue($event, key)"
-            :model-value="stats[key].getDie()"
-            :show-clear="true"
-          />
-        </div>
-        <div class="col">
-          <label :for="key + '_bonus'">{{ stats[key].getLabel() }} Bonus</label>
-          <InputNumber
-            inputId="horizontal"
-            v-model="statBonuses[key]"
-            showButtons
-            buttonLayout="horizontal"
-            decrementButtonClass="p-button-danger"
-            incrementButtonClass="p-button-success"
-            incrementButtonIcon="pi pi-plus"
-            decrementButtonIcon="pi pi-minus"
-            mode="decimal"
-          />
-        </div>
-        <Dialog modal :header="stats[key].getLabel()" v-model:visible="displayDialogs[key]">
-          <div>{{ stats[key].getDescription() }}</div>
-        </Dialog>
-        <div v-if="stats[key].getDie()">
-          <DiceRoller :notation="getNotation(key)" :statName="key" />
-        </div>
+  <Fieldset legend="Stats" class="card">
+    <div v-for="key in statLabels" :key="key" class="card-container flex align-items bg-blue-100 mb-2">
+      <div class="col">
+        <label class="mr-2" :for="stats[key].getLabel()">{{ stats[key].getLabel() }}</label>
+        <i class="pi pi-info-circle" @click="openDialog(key)"></i>
+        <Dropdown :id="key" :inputId="key" :options="diceAvailable" optionLabel="name" optionValue="value"
+          placeholder="Select a Dice" @change="store.setStatDiceValue($event, key)" :model-value="stats[key].getDie()"
+          :show-clear="true" class="" />
       </div>
-    </Fieldset>
-  </div>
+      <div class="col">
+        <label :for="key + '_bonus'">{{ stats[key].getLabel() }} Bonus</label>
+        <InputNumber inputId="horizontal" v-model="statBonuses[key]" showButtons buttonLayout="horizontal"
+          decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus" mode="decimal" />
+      </div>
+      <Dialog modal :header="stats[key].getLabel()" v-model:visible="displayDialogs[key]">
+        <div>{{ stats[key].getDescription() }}</div>
+      </Dialog>
+      <div class="col flex" v-if="stats[key].getDie()">
+        <DiceRoller :notation="getNotation(key)" :statName="key" />
+      </div>
+    </div>
+  </Fieldset>
 </template>
